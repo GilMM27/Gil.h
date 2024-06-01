@@ -2,13 +2,43 @@
 import * as React from 'react';
 import { useState } from 'react';
 import Image from "next/image";
+import cpp from '../public/assets/C++_logo.png';
+import python from '../public/assets/Python-logo.png';
+import java from '../public/assets/java-logo-1.png';
+import javaScript from '../public/assets/javascript-logo-javascript-icon-transparent-free-png.webp';
+import typeScript from '../public/assets/Typescript_logo_2020.svg.png';
+import matlab from '../public/assets/Matlab_Logo.png';
+import csharp from '../public/assets/c-sharp-c-logo-02F17714BA-seeklogo.com.png';
 import im from '../public/assets/yo.jpg';
-import {Card, CardHeader, CardBody, CardFooter, Divider, Navbar, NavbarBrand, NavbarContent, NavbarItem, NavbarMenuToggle, NavbarMenu, NavbarMenuItem, ModalContent, ModalHeader, ModalBody, ModalFooter} from "@nextui-org/react";
+import {Divider, Navbar, NavbarBrand, NavbarContent, NavbarItem} from "@nextui-org/react";
 import Link from "next/link";
-import Box from '@mui/material/Box';
-import Button from '@mui/material/Button';
-import Typography from '@mui/material/Typography';
+// import Button from '@mui/material/Button';
 import Modal from '@mui/material/Modal';
+import { Button } from "@/components/ui/button"
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card"
+import { Input } from "@/components/ui/input"
+import { Label } from "@/components/ui/label"
+import {
+  Tabs,
+  TabsContent,
+  TabsList,
+  TabsTrigger,
+} from "@/components/ui/tabs"
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "@/components/ui/carousel"
+import Autoplay from "embla-carousel-autoplay"
 
 const Terminal: React.FC = () => {
   const [open, setOpen] = React.useState(false);
@@ -18,8 +48,18 @@ const Terminal: React.FC = () => {
   const handleButtonClick = (newText : string) => {
     setDisplayText(newText);
   };
+  const [selectedItem, setSelectedItem] = useState('');
+  const changeSelectedItem = () => { 
+    setSelectedItem('bg-green-700 text-white');
+  }
   const myInfo = ["op1", "op2"];
   const tabs = ["option1", "option2", "option3"];
+  const languages = [cpp, csharp, python, java, javaScript, typeScript, matlab];
+  const langNames = ["C++", "C#","Python", "Java", "JavaScript", "TypeScript", "Matlab"];
+  const langTime = ["3 year", "1 year","1 year", "1 year", "1 year", "1 year", "1 year"]
+  const technologies = [''];
+  const techNames = [''];
+  const techTime = [''];
     return (
       <main>
         <Navbar className="bg-black h-14">
@@ -49,7 +89,7 @@ const Terminal: React.FC = () => {
               <Link className='font-code' href="#">Contact</Link>
             </NavbarItem>
             <NavbarItem>
-              <Button className='font-code h-8 hover:scale-110 transition duration-300 ease-in-out' onClick={handleOpen} variant="contained">
+              <Button className='font-code h-8 hover:scale-110 transition duration-300 ease-in-out' onClick={handleOpen}>
                 &gt;_
               </Button>
               <Modal
@@ -79,33 +119,141 @@ const Terminal: React.FC = () => {
           </section>
         </div>
         
-        <section className='grid grid-cols-2 gap-10 mx-28 mt-28'>
+        <section className='grid grid-cols-2 gap-10 mx-28 mt-28 items-center'>
           <div>
             <div className='font-code text-green-700 text-5xl text-end'>Rather not scroll?</div>
             <div className='font-code text-white text-7xl text-end'>Try the terminal!</div>
           </div>
-          <Button className='font-code my-8 mx-10 hover:scale-105 transition duration-300 ease-in-out' onClick={handleOpen} variant="contained">
-            LAUNCH TERMINAL
+          <Button className='font-code my-8 mx-10 hover:scale-105 transition duration-300 ease-in-out text-xl' onClick={handleOpen}>
+            LAUNCH TERMINAL 
           </Button>
         </section>
 
-        <Card className="text-white mt-28 text-xl bg-neutral-900 p-3 mx-28">
-          <CardHeader className="text-green-300">// Hi! just a little introduction about me, feel free to skip.</CardHeader><Divider className="bg-neutral-500"/>
-          <CardBody>
+        <Card className="text-white mt-28 bg-neutral-900 p-3 mx-28 rounded-xl border-0">
+          <CardHeader className="text-green-300 text-3xl">// Hi! just a little introduction about me, feel free to skip.</CardHeader>{/*<Divider className="bg-neutral-500"/>*/}
+          <CardContent className='text-xl'>
             &gt; I'm a software engineer, a web developer, and a computer science student at Tecnológico de Monterrey Campus Monterrey.<br/>
             &gt; Been coding since 2020, as every other programmer, my first interest was in how video games were made.<br/>
             &gt; From then I moved onto competitive programming, baby steps.<br/>
             &gt; I'm currently competing in robotics, freelance web development, and working on personal projects.<br/>
-          </CardBody>
+          </CardContent>
         </Card>
 
-        <section className='h-80 rounded-large bg-white m-28 flex font-code text-black'>
-          <div>
-            {myInfo.map((nadota, index) => (
-              <div key={index} className='w-52 p-3' onClick={() => handleButtonClick(myInfo[index])}>{tabs[index]}</div>
-            ))}
-          </div>
-          <div className='p-5'>{displayText}</div>
+        <div className='w-full text-center mt-28 text-5xl font-code text-green-700'>Porgramming languages</div>
+        <section className='flex justify-center mt-10'>
+          <Carousel
+            plugins={[
+              Autoplay({
+                delay: 2000,
+              }),
+            ]}
+            opts={{
+              align: "start",
+              // loop: true,
+            }}
+            className="w-full mx-28"
+          >
+            <CarouselContent>
+              {Array.from({ length: languages.length }).map((_, index) => (
+                <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/5 w-full">
+                  <div className="p-1">
+                    <Card className='border-0 bg-neutral-900'>
+                      <CardContent className="flex aspect-square items-center justify-center p-6 bg-neutral-900 rounded-xl relative">
+                        <Image src={languages[index]} alt='c++' width={918} height={1032} className='h-36 w-fit top-6 absolute'/>
+                        <span className="text-xl font-semibold text-white bottom-4 left-6 absolute">
+                          {langNames[index]}
+                        </span>
+                        <span className="text-xl font-semibold text-green-300 bottom-4 right-6 absolute">
+                          {langTime[index]}
+                        </span>
+                      </CardContent>
+                    </Card>
+                  </div>
+                </CarouselItem>
+              ))}
+            </CarouselContent>
+            <CarouselPrevious className='bg-black'/>
+            <CarouselNext className='bg-black'/>
+          </Carousel>
+        </section>
+
+        <div className='w-full text-center mt-10 text-5xl font-code text-green-700'>Technologies</div>
+        <section className='flex justify-center mt-10'>
+          <Carousel
+            plugins={[
+              Autoplay({
+                delay: 2000,
+              }),
+            ]}
+            opts={{
+              align: "start",
+              // loop: true,
+            }}
+            className="w-full mx-28"
+          >
+            <CarouselContent>
+              {Array.from({ length: technologies.length }).map((_, index) => (
+                <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/5 w-full">
+                  <div className="p-1">
+                    <Card className='border-0 bg-neutral-900'>
+                      <CardContent className="flex aspect-square items-center justify-center p-6 bg-neutral-900 rounded-xl relative">
+                        <Image src={technologies[index]} alt='c++' width={918} height={1032} className='h-36 w-fit top-6 absolute'/>
+                        <span className="text-xl font-semibold text-white bottom-4 left-6 absolute">
+                          {techNames[index]}
+                        </span>
+                        <span className="text-xl font-semibold text-green-300 bottom-4 right-6 absolute">
+                          {techTime[index]}
+                        </span>
+                      </CardContent>
+                    </Card>
+                  </div>
+                </CarouselItem>
+              ))}
+            </CarouselContent>
+            <CarouselPrevious className='bg-black'/>
+            <CarouselNext className='bg-black'/>
+          </Carousel>
+        </section>
+
+        <section className='justify-center m-14 mt-28'>
+          <Tabs defaultValue="RoBorregos">
+            <TabsList className="grid w-full grid-cols-2 bg-neutral-900 text-white">
+              <TabsTrigger value="RoBorregos">RoBorregos</TabsTrigger>
+              <TabsTrigger value="FIRST">FIRST</TabsTrigger>
+            </TabsList>
+            <TabsContent value="RoBorregos">
+              <Card>
+                <CardHeader>
+                  <CardTitle>Roborregos</CardTitle>
+                  <CardDescription>
+                    Desc
+                  </CardDescription>
+                </CardHeader>
+                <CardContent className="space-y-2">
+                  Content
+                </CardContent>
+                <CardFooter>
+                  Foot
+                </CardFooter>
+              </Card>
+            </TabsContent>
+            <TabsContent value="FIRST">
+              <Card>
+                <CardHeader>
+                  <CardTitle>FIRST</CardTitle>
+                  <CardDescription>
+                    Desc
+                  </CardDescription>
+                </CardHeader>
+                <CardContent className="space-y-2">
+                  Content
+                </CardContent>
+                <CardFooter>
+                  Foot
+                </CardFooter>
+              </Card>
+            </TabsContent>
+          </Tabs>
         </section>
 
         {/* <select onChange={(event) => {
