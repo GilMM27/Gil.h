@@ -1,84 +1,20 @@
-'use client'
 import * as React from 'react';
-import { useState } from 'react';
 import Image from "next/image";
-import cpp from '../public/assets/C++_logo.png';
-import python from '../public/assets/Python-logo.png';
-import java from '../public/assets/java-logo-1.png';
-import javaScript from '../public/assets/javascript-logo-javascript-icon-transparent-free-png.webp';
-import typeScript from '../public/assets/Typescript_logo_2020.svg.png';
-import matlab from '../public/assets/Matlab_Logo.png';
-import csharp from '../public/assets/c-sharp-c-logo-02F17714BA-seeklogo.com.png';
-import im from '../public/assets/yo.jpg';
-import unity from '../public/assets/unity.png';
-import arduino from '../public/assets/arduino.png';
-import android from '../public/assets/android.webp';
-import github from '../public/assets/github.png';
-import html from '../public/assets/html.png';
-import tailwind from '../public/assets/tailwind.webp';
-import angular from '../public/assets/angular.png';
-import react from '../public/assets/react.webp';
-import nextjs from '../public/assets/nextjs.png';
-import firebase from '../public/assets/firebase.png';
 import Link from "next/link";
-import Modal from '@mui/material/Modal';
-import { Button } from "@/components/ui/button"
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardFooter,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card"
-import { Input } from "@/components/ui/input"
-import { Label } from "@/components/ui/label"
-import {
-  Tabs,
-  TabsContent,
-  TabsList,
-  TabsTrigger,
-} from "@/components/ui/tabs"
-import {
-  Carousel,
-  CarouselContent,
-  CarouselItem,
-  CarouselNext,
-  CarouselPrevious,
-} from "@/components/ui/carousel"
-import Autoplay from "embla-carousel-autoplay"
+import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import Navbar from "./components/navbar";
+import Terminal from "./components/terminal";
+import Carousels from './components/carousels';
 
 const Landing: React.FC = () => {
-  // Modal for terminal
-  const [open, setOpen] = React.useState(false);
-  const handleOpen = () => setOpen(true);
-  const handleClose = () => setOpen(false);
-  const languages = [cpp, csharp, java, python, javaScript, typeScript, matlab];
-  const langNames = ["C++", "C#","Java", "Python", "JavaScript", "TypeScript", "Matlab"];
-  const langTime = ["3 years", "3 years","3 years", "1 year", "1 year", "1 year", "1 year"]
-  // add flutter
-  const technologies = [unity, arduino, android, github, html, tailwind, angular, react, nextjs, firebase];
-  const techNames = ['Unity Game Engine', 'Arduino', 'Android SDK', 'GitHub', 'HTML', 'Tailwind CSS', 'Angular', 'React', 'Next.js', 'Firebase'];
-  const techTime = ['', '', '', '', '', '', '', '', '', '', ''];
     return (
       <main>
         <Navbar/>
 
-        <Modal
-          open={open}
-          onClose={handleClose}
-          aria-labelledby="modal-modal-title"
-          aria-describedby="modal-modal-description"
-        >
-          <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-400 shadow-lg p-4 w-3/4 h-3/4 bg-neutral-900">
-            TODO: terminal
-          </div>
-        </Modal>
-
-        <div className="flex bg-gradient-to-l from-green-900 to-black mr-10 m-10" id='mainTitle'>
+        <div className="flex bg-gradient-to-l from-green-900 to-black mr-10 m-10">
           <section className="relative w-96 h-96 overflow-hidden">
-            <Image src={im} alt="Image" className="absolute w-full h-full object-cover"/>
+            <Image src='/assets/yo.jpg' width={918} height={1032} alt="Image" className="absolute w-full h-full object-cover"/>
           </section>
           <section className="ml-10 text-green-700 flex items-center">
             <div>
@@ -87,19 +23,11 @@ const Landing: React.FC = () => {
             </div>
           </section>
         </div>
-        
-        <section className='grid grid-cols-2 gap-10 mx-28 mt-28 items-center'>
-          <div>
-            <div className=' text-green-700 text-5xl text-end'>Rather not scroll?</div>
-            <div className=' text-white text-7xl text-end'>Try the terminal!</div>
-          </div>
-          <Button className=' my-8 mx-10 hover:scale-105 transition duration-300 ease-in-out text-xl' onClick={handleOpen}>
-            LAUNCH TERMINAL 
-          </Button>
-        </section>
+
+        <Terminal></Terminal>
 
         <Card className="text-white mt-28 bg-neutral-900 p-3 mx-28 rounded-xl border-0">
-          <CardHeader className="text-green-300 text-3xl">// Hi! just a little introduction about me, feel free to skip.</CardHeader>{/*<Divider className="bg-neutral-500"/>*/}
+          <CardHeader className="text-green-400 text-3xl">// Hi! just a little introduction about me, feel free to skip.</CardHeader>
           <CardContent className='text-xl'>
             &gt; I'm a software engineer, a web developer, and a computer science student at Tecnológico de Monterrey Campus Monterrey.<br/>
             &gt; Been coding since 2020, as every other programmer, my first interest was in how video games were made.<br/>
@@ -108,92 +36,55 @@ const Landing: React.FC = () => {
           </CardContent>
         </Card>
 
-        <div className='w-full text-center mt-28 text-5xl text-green-700'>Porgramming languages</div>
-        <section className='flex justify-center mt-10'>
-          <Carousel
-            plugins={[
-              Autoplay({
-                delay: 2000,
-              }),
-            ]}
-            opts={{
-              align: "start",
-              // loop: true,
-            }}
-            className="w-full mx-28"
-          >
-            <CarouselContent>
-              {Array.from({ length: languages.length }).map((_, index) => (
-                <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/5 w-full">
-                  <div className="p-1">
-                    <Card className='border-0 bg-neutral-900'>
-                      <CardContent className="flex aspect-square items-center justify-center p-6 bg-neutral-900 rounded-xl relative">
-                        <Image src={languages[index]} alt='c++' width={918} height={1032} className='h-36 w-fit top-6 absolute'/>
-                        <span className="text-xl font-semibold text-white bottom-4 left-6 absolute">
-                          {langNames[index]}
-                        </span>
-                        <span className="text-xl  text-green-300 bottom-4 right-6 absolute">
-                          {langTime[index]}
-                        </span>
-                      </CardContent>
-                    </Card>
-                  </div>
-                </CarouselItem>
-              ))}
-            </CarouselContent>
-            <CarouselPrevious className='bg-black'/>
-            <CarouselNext className='bg-black'/>
-          </Carousel>
-        </section>
+        <Carousels></Carousels>
 
-        <div className='w-full text-center mt-28 text-5xl text-green-700'>Technologies</div>
-        <section className='flex justify-center mt-10'>
-          <Carousel
-            plugins={[
-              Autoplay({
-                delay: 2000,
-              }),
-            ]}
-            opts={{
-              align: "start",
-              // loop: true,
-            }}
-            className="w-full mx-28"
-          >
-            <CarouselContent>
-              {Array.from({ length: technologies.length }).map((_, index) => (
-                <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/5 w-full">
-                  <div className="p-1">
-                    <Card className='border-0 bg-neutral-900'>
-                      <CardContent className="flex aspect-square items-center justify-center p-6 bg-neutral-900 rounded-xl relative">
-                        <Image src={technologies[index]} alt='c++' width={918} height={1032} className='h-36 w-fit top-6 absolute'/>
-                        <span className="text-xl font-semibold text-white bottom-4 left-6 absolute">
-                          {techNames[index]}
-                        </span>
-                        <span className="text-xl font-semibold text-green-300 bottom-4 right-6 absolute">
-                          {techTime[index]}
-                        </span>
-                      </CardContent>
-                    </Card>
-                  </div>
-                </CarouselItem>
-              ))}
-            </CarouselContent>
-            <CarouselPrevious className='bg-black'/>
-            <CarouselNext className='bg-black'/>
-          </Carousel>
-        </section>
-
-        <div className='w-full text-center mt-28 text-5xl text-green-700'>Experiences</div>
-        <section className='justify-center mx-14 mt-10'>
-          <Tabs defaultValue="OMI">
-            <TabsList className="grid w-full grid-cols-3 bg-neutral-900 text-white">
+        <div className='w-full text-center mt-28 text-5xl text-green-700'>Experience</div>
+        <section className='justify-center mx-28 mt-10'>
+          <Tabs defaultValue="Smiley">
+            <TabsList className="grid w-full grid-cols-5 bg-neutral-900 text-white">
+              <TabsTrigger value="Smiley">Smiley</TabsTrigger>
+              <TabsTrigger value="PDEI">PDEI united</TabsTrigger>
               <TabsTrigger value="RoBorregos">RoBorregos</TabsTrigger>
               <TabsTrigger value="FTC">FTC</TabsTrigger>
               <TabsTrigger value="OMI">OMI</TabsTrigger>
             </TabsList>
+            <TabsContent value="Smiley">
+              <Card className='bg-neutral-900 border-0 text-white text-lg h-[25rem]'>
+                <CardHeader>
+                  <CardTitle className='text-3xl'>Smiley</CardTitle>
+                  <CardDescription className='text-xl'>
+                    Developed a web page for a local business in Monterrey called Smiley.
+                  </CardDescription>
+                </CardHeader>
+                <CardContent className="space-y-2">
+                  &gt; The <Link href={'https://smiley-web-app.web.app'} className='font-bold text-green-700'>page</Link> was developed using the Angular framework and Firebase for the backend.<br/>
+                  &gt; It handles user authentication, a shopping cart, and a database for the tickets.<br/>
+                  &gt; The page is currently being used by the business and has been a great success. We have registered 1271 user accounts.<br/>
+                </CardContent>
+                <CardFooter>
+                  This team has been a great experience and has taught me a lot about teamwork, project management, and robotics.
+                </CardFooter>
+              </Card>
+            </TabsContent>
+            <TabsContent value="PDEI">
+              <Card className='bg-neutral-900 border-0 text-white text-lg h-[25rem]'>
+                <CardHeader>
+                  <CardTitle className='text-3xl'>PDEI united</CardTitle>
+                  <CardDescription className='text-xl'>
+                    Developed a web page for a business called PDEI united.
+                  </CardDescription>
+                </CardHeader>
+                <CardContent className="space-y-2">
+                  &gt; Currently developing using Next.js and Firebase for the backend.<br/>
+                  &gt; Designed the user interface using Figma.<br/>
+                </CardContent>
+                <CardFooter>
+                  -
+                </CardFooter>
+              </Card>
+            </TabsContent>
             <TabsContent value="RoBorregos">
-              <Card className='bg-neutral-900 border-0 text-white text-lg'>
+              <Card className='bg-neutral-900 border-0 text-white text-lg h-[25rem]'>
                 <CardHeader>
                   <CardTitle className='text-3xl'>RoBorregos</CardTitle>
                   <CardDescription className='text-xl'>
@@ -211,7 +102,7 @@ const Landing: React.FC = () => {
               </Card>
             </TabsContent>
             <TabsContent value="FTC">
-              <Card className='bg-neutral-900 border-0 text-white text-lg'>
+              <Card className='bg-neutral-900 border-0 text-white text-lg h-[25rem]'>
                 <CardHeader>
                   <CardTitle className='text-3xl'>FTC</CardTitle>
                   <CardDescription className='text-xl'>
@@ -231,7 +122,7 @@ const Landing: React.FC = () => {
               </Card>
             </TabsContent>
             <TabsContent value="OMI">
-              <Card className='bg-neutral-900 border-0 text-white text-lg'>
+              <Card className='bg-neutral-900 border-0 text-white text-lg h-[25rem]'>
                 <CardHeader>
                   <CardTitle className='text-3xl'>OMI</CardTitle>
                   <CardDescription className='text-xl'>
@@ -247,6 +138,88 @@ const Landing: React.FC = () => {
                 </CardContent>
                 <CardFooter>
                   This competition sparked my interest in competitive programming and taught me a lot about algorithms and data structures.
+                </CardFooter>
+              </Card>
+            </TabsContent>
+          </Tabs>
+        </section>
+
+        <div className='w-full text-center mt-28 text-5xl text-green-700'>Hackathons</div>
+        <section className='justify-center mx-28 mt-10 bg-neutral-900 rounded-xl'>
+          <Tabs defaultValue="yuHacks" className='flex'>
+            <TabsList className="grid grid-rows-5 h-fit text-white bg-neutral-900 gap-3 ml-6 mt-6">
+              <TabsTrigger value="yuHacks" className='w-52'>yuHacks</TabsTrigger>
+              <TabsTrigger value="CODICON">CODICON</TabsTrigger>
+              <TabsTrigger value="Lincehacks">Lincehacks</TabsTrigger>
+              <TabsTrigger value="Rocket">Rocket</TabsTrigger>
+            </TabsList>
+            <TabsContent value="yuHacks">
+              <Card className='border-0 text-white text-lg bg-neutral-900'>
+                <CardHeader>
+                  <CardTitle className='text-3xl'>yuHacks (2021)</CardTitle>
+                  <CardDescription className='text-xl'>
+                    36 hour hackathon organized by the York University in Toronto, Canada.
+                  </CardDescription>
+                </CardHeader>
+                <CardContent className="space-y-2">
+                  &gt; Developed a web project called <Link href={'https://devpost.com/software/speed-stocks'} className='font-bold text-green-700'>Speed Stocks</Link>, a game that simulates common trends in the stock market in a fun and enjoyable way.<br/>
+                  &gt; I worked on the stock's price line generation and display using javascript<br/>
+                </CardContent>
+                <CardFooter>
+                  This was my first time using javascript and working on a larger scale web project and I learned a lot during this hackathon.
+                </CardFooter>
+              </Card>
+            </TabsContent>
+            <TabsContent value="CODICON">
+              <Card className='border-0 text-white text-lg bg-neutral-900'>
+                <CardHeader>
+                  <CardTitle className='text-3xl'>CODICON (2024)</CardTitle>
+                  <CardDescription className='text-xl'>
+                    Won 3rd place in the 48-hour hackathon organized by Lexpin.
+                  </CardDescription>
+                </CardHeader>
+                <CardContent className="space-y-2">
+                  &gt; Me and my team of 4 members developed game called <Link href={'https://github.com/GilMM27/ShiftHappens'} className='font-bold text-green-700'>Shift Happens</Link> in python that simulated a car's manual transmition using pygame.<br/>
+                  &gt; The code generates random math functions to draw the road.<br/>
+                  &gt; The player is responsable for shifting the gears on the right time to keep the car running.<br/>
+                </CardContent>
+                <CardFooter>
+                  I learned about game development and how to use pygame during this hackathon.
+                </CardFooter>
+              </Card>
+            </TabsContent>
+            <TabsContent value="Lincehacks">
+              <Card className='border-0 text-white text-lg bg-neutral-900'>
+                <CardHeader>
+                  <CardTitle className='text-3xl'>Lincehacks (2024)</CardTitle>
+                  <CardDescription className='text-xl'>
+                    Participated in MLH's Lincehacks 36-hour hackathon.
+                  </CardDescription>
+                </CardHeader>
+                <CardContent className="space-y-2">
+                  &gt; Demoed a flutter mobile app called <Link href={'https://github.com/A00838521/ForaneoApp'} className='font-bold text-green-700'>Foraneo App</Link> that helps students find the best sevices, restaurants, build their comunity and get tips from other students near their campus.<br/>
+                  &gt; I worked on implementing the backend using firebase and the user interface using flutter.<br/>
+                  &gt; I also added the geolocation feature using a flutter package to only show the user information published nearby.<br/>
+                </CardContent>
+                <CardFooter>
+                  I practiced my flutter skills and learned how to use firebase with it.
+                </CardFooter>
+              </Card>
+            </TabsContent>
+            <TabsContent value="Rocket">
+              <Card className='border-0 text-white text-lg bg-neutral-900'>
+                <CardHeader>
+                  <CardTitle className='text-3xl'>Rocket (2024)</CardTitle>
+                  <CardDescription className='text-xl'>
+                    Participated in the challenge #3 of the 48-hour Rocket Hackathon organized by Digital Hub in Monterrey, sponsored by Arca Continental.
+                  </CardDescription>
+                </CardHeader>
+                <CardContent className="space-y-2">
+                  &gt; Developed a prediction model for the churn of customers of the company using python and databases provided by the company.<br/>
+                  &gt; Took talks on how to present a pitch and learned about the business model of Arca Continental.<br/>
+                </CardContent>
+                <CardFooter>
+                  Learned a lot about data science and how to use python for data analysis during this hackathon.
                 </CardFooter>
               </Card>
             </TabsContent>
