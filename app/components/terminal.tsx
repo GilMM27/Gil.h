@@ -1,12 +1,18 @@
 'use client'
 
 import Modal from '@mui/material/Modal';
+import { TIMEOUT } from 'dns';
 import React, { useState, useEffect, useRef } from 'react';
+import FloatingButton from './floatingButton';
 
 const Terminal: React.FC = () => {
     const [open, setOpen] = React.useState(false);
     const handleOpen = () => setOpen(true);
     const handleClose = () => setOpen(false);
+
+    const [openCV, setOpenCV] = React.useState(false);
+    const handleOpenCV = () => setOpenCV(true);
+    const handleCloseCV = () => setOpenCV(false);
 
     const scrollToPosition = (position: number) => {
         window.scrollTo({
@@ -15,12 +21,13 @@ const Terminal: React.FC = () => {
         });
     };
 
-    const [messages, setMessages] = useState<string[]>(['Welcome to the terminal! Type "help" for a list of commands.']);
+    const [messages, setMessages] = useState<string[]>(['Welcome to the terminal! Run "help" for more information.']);
     const [input, setInput] = useState('');
     const messagesEndRef = useRef<HTMLDivElement>(null);
     const inputRef = useRef<HTMLInputElement>(null);
 
-    const commands = ['help', 'clear', 'about', 'goto']; // List of recognized commands
+    const commands = ['help', 'clear', 'ls', 'open', 'goto']; // List of recognized commands
+    const lsOutputs = ['CV.pdf']; // Valid options for the ls command
     const validGotoOptions = ['Gil.h', 'Languages', 'Technologies', 'Experience', 'Hackathons']; // Valid options for the goto command
 
     const scrollToBottom = () => {
@@ -63,12 +70,30 @@ const Terminal: React.FC = () => {
                 // Call the function with the valid option
                 goto(option);
               } else {
-                setMessages([...messages, `> ${command}`, `Error: Check 'goto -h' for valid options`]);
+                setMessages([...messages, `> ${command}`, `Error: Run 'goto -h' for valid options`]);
               }
             }
-          } else if( mainCommand === 'help') {
-            setMessages([...messages, `> ${command}`, `Recognized commands: ${commands.join(', ')}`]);
+          } else if (mainCommand === 'help') {
+            setMessages([...messages, `> ${command}`, `This is a terminal I programmed to be used as a fun alternative way of learning about me and a bit of how a linux terminal works! Just type in the following commands and hit enter to see what happens. Recognized commands: ${commands.join(', ')}`]);
 
+          } else if (mainCommand === 'ls') {
+            if (commandParts.length === 1) {
+              setMessages([...messages, `> ${command}`, ...lsOutputs]);
+            } else {
+              setMessages([...messages, `> ${command}`, `Error: Run 'ls' without any arguments`]);
+            }
+          } else if (mainCommand === 'open') {
+            if (commandParts[1] === '-h') {
+              setMessages([...messages, `> ${command}`, `To open a file, run 'open ' followed by the file name with its extension. To see valid options, run 'ls' which lists the available files in your current directory. Example: open CV.pdf`]);
+            } else if (commandParts[1] === 'CV.pdf') {
+              setMessages([...messages, `> ${command}`, `Opening CV...`]);
+              // Call the function with the valid option
+              setTimeout(() => {
+                handleOpenCV();
+              }, 1000);
+            } else {
+              setMessages([...messages, `> ${command}`, `Error: Run 'open -h' for valid options`]);
+            }
           } else {
             setMessages([...messages, `> ${command}`, `Command recognized: ${mainCommand}`]);
           }
@@ -101,8 +126,50 @@ const Terminal: React.FC = () => {
         inputRef.current?.focus();
     };
 
+    // Floating button
+
+    const [showButton, setShowButton] = useState(false);
+
+    useEffect(() => {
+      const handleScroll = () => {
+        if (window.scrollY > window.innerHeight) {
+          setShowButton(true);
+        } else {
+          setShowButton(false);
+        }
+      };
+
+      window.addEventListener('scroll', handleScroll);
+
+      // Clean up the event listener on component unmount
+      return () => {
+        window.removeEventListener('scroll', handleScroll);
+      };
+    }, []);
+
+    const OpenTerminal = () => {
+      if (messages === null || messages.length === 0) {
+        setMessages([...messages, 'Welcome to the terminal! Run "help" for more information.']);
+      }
+      handleOpen();
+      setTimeout(() => handleClick(), 100);
+    };
+
+
     return (
         <section className='grid grid-cols-2 gap-10 mx-28 mt-28 items-center place-items-center'>
+            <Modal
+              open={openCV}
+              onClose={handleCloseCV}
+              aria-labelledby="modal-modal-title"
+              aria-describedby="modal-modal-description"
+              className='z-50 '
+            >
+              <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-400 shadow-lg p-4 w-3/4 h-3/4 bg-neutral-900 focus:outline-none">
+                <iframe src="/Resume.pdf" className='w-full h-full'></iframe>
+              </div>
+            </Modal>
+
             <Modal
             open={open}
             onClose={handleClose}
@@ -137,9 +204,10 @@ const Terminal: React.FC = () => {
                 <div className='text-green-700 text-5xl text-end'>Rather not scroll?</div>
                 <div className='text-white text-7xl text-end'>Try the terminal!</div>
             </div>
-            <button className='w-full my-8 mx-10 hover:scale-105 transition duration-300 ease-in-out text-xl bg-sky-950 p-3 rounded-xl bg-opacity-50 focus:outline-none' onClick={handleOpen}>
-                LAUNCH TERMINAL 
+            <button className='w-full my-8 mx-10 hover:scale-105 transition duration-300 ease-in-out text-xl bg-sky-950 p-3 rounded-xl focus:outline-none' onClick={OpenTerminal}>
+                LAUNCH TERMINAL
             </button>
+            <FloatingButton onClick={OpenTerminal} isVisible={showButton} />
         </section>
     )
 }

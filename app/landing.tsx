@@ -6,13 +6,14 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import Navbar from "./components/navbar";
 import Terminal from "./components/terminal";
 import Carousels from './components/carousels';
+import Footer from './components/footer';
 
 const Landing: React.FC = () => {
     return (
       <main>
         <Navbar/>
 
-        <div className="flex bg-gradient-to-l from-green-900 to-black mr-10 m-10">
+        <div className="flex bg-gradient-to-l from-green-950 to-black m-10">
           <section className="relative w-96 h-96 overflow-hidden">
             <Image src='/assets/yo.jpg' width={918} height={1032} alt="Image" className="absolute w-full h-full object-cover"/>
           </section>
@@ -57,7 +58,7 @@ const Landing: React.FC = () => {
                   </CardDescription>
                 </CardHeader>
                 <CardContent className="space-y-2">
-                  &gt; The <Link href={'https://smiley-web-app.web.app'} className='font-bold text-green-700'>page</Link> was developed using the Angular framework and Firebase for the backend.<br/>
+                  &gt; The <Link href={'https://smiley-web-app.web.app'} className='text-green-400'>page</Link> was developed using the Angular framework and Firebase for the backend.<br/>
                   &gt; It handles user authentication, a shopping cart, and a database for the tickets.<br/>
                   &gt; The page is currently being used by the business and has been a great success. We have registered 1271 user accounts.<br/>
                 </CardContent>
@@ -92,7 +93,7 @@ const Landing: React.FC = () => {
                   </CardDescription>
                 </CardHeader>
                 <CardContent className="space-y-2">
-                  &gt; Competed in the 2024 Mexican Robotics Tournament (TMR) and placed 2nd in the Junior Rescue Maze category. I designed and programmed the <Link href={'https://github.com/RoBorregos/RescueMaze2024/tree/nacionalNewMovement'} className='font-bold text-green-700'>maze exploring algorithm</Link> in both C++ and arduino based on the Depth First Search and Dijkstra's shortest path algorithms. I also worked on the movement and vision integrations which included serial communication with a Jetson Nano and several PID controls.<br/>
+                  &gt; Competed in the 2024 Mexican Robotics Tournament (TMR) and placed 2nd in the Junior Rescue Maze category. I designed and programmed the <Link href={'https://github.com/RoBorregos/RescueMaze2024/tree/nacionalNewMovement'} className='text-green-400'>maze exploring algorithm</Link> in both C++ and arduino based on the Depth First Search and Dijkstra's shortest path algorithms. I also worked on the movement and vision integrations which included serial communication with a Jetson Nano and several PID controls.<br/>
                   &gt; Worked on an IOT project for the lockers in the RoBorrego's lab consisting of a websocket used to communicate with ESP32 microcontrollers and a web app for the user interface using the T3 tech stack.<br/>
                   &gt; Started working on the RoboCup @home Human Robot Interaction and manipulation teams. I'm currently learning ROS and Gazebo.
                 </CardContent>
@@ -132,7 +133,7 @@ const Landing: React.FC = () => {
                 <CardContent className="space-y-2">
                   &gt; Placed 36th in the 2021 national stage (bronze medal) and 16th in the 2022 national stage (silver medal).<br/>
                   &gt; Learned about algorithms and data structures, and how to implement them in C++.<br/>
-                  &gt; Took the training and solved a lot of <Link href={'https://github.com/GilMM27/OMI'} className='font-bold text-green-700'>homeworks and OmegaUp</Link> problems. <br/>
+                  &gt; Took the training and solved a lot of <Link href={'https://github.com/GilMM27/OMI'} className='text-green-400'>homeworks and OmegaUp</Link> problems. <br/>
                   &gt; Both years I participated the traning for the international team selection.<br/>
                   &gt; Started a competitive programming club in my school and taught the basics of C++ and algorithms to the members.
                 </CardContent>
@@ -145,7 +146,7 @@ const Landing: React.FC = () => {
         </section>
 
         <div className='w-full text-center mt-28 text-5xl text-green-700'>Hackathons</div>
-        <section className='justify-center mx-28 mt-10 bg-neutral-900 rounded-xl'>
+        <section className='justify-center m-28 mt-10 bg-neutral-900 rounded-xl'>
           <Tabs defaultValue="yuHacks" className='flex'>
             <TabsList className="grid grid-rows-5 h-fit text-white bg-neutral-900 gap-3 ml-6 mt-6">
               <TabsTrigger value="yuHacks" className='w-52'>yuHacks</TabsTrigger>
@@ -162,7 +163,7 @@ const Landing: React.FC = () => {
                   </CardDescription>
                 </CardHeader>
                 <CardContent className="space-y-2">
-                  &gt; Developed a web project called <Link href={'https://devpost.com/software/speed-stocks'} className='font-bold text-green-700'>Speed Stocks</Link>, a game that simulates common trends in the stock market in a fun and enjoyable way.<br/>
+                  &gt; Developed a web project called <Link href={'https://devpost.com/software/speed-stocks'} className='text-green-400'>Speed Stocks</Link>, a game that simulates common trends in the stock market in a fun and enjoyable way.<br/>
                   &gt; I worked on the stock's price line generation and display using javascript<br/>
                 </CardContent>
                 <CardFooter>
@@ -179,7 +180,7 @@ const Landing: React.FC = () => {
                   </CardDescription>
                 </CardHeader>
                 <CardContent className="space-y-2">
-                  &gt; Me and my team of 4 members developed game called <Link href={'https://github.com/GilMM27/ShiftHappens'} className='font-bold text-green-700'>Shift Happens</Link> in python that simulated a car's manual transmition using pygame.<br/>
+                  &gt; Me and my team of 4 members developed game called <Link href={'https://github.com/GilMM27/ShiftHappens'} className='text-green-400'>Shift Happens</Link> in python that simulated a car's manual transmition using pygame.<br/>
                   &gt; The code generates random math functions to draw the road.<br/>
                   &gt; The player is responsable for shifting the gears on the right time to keep the car running.<br/>
                 </CardContent>
@@ -197,7 +198,7 @@ const Landing: React.FC = () => {
                   </CardDescription>
                 </CardHeader>
                 <CardContent className="space-y-2">
-                  &gt; Demoed a flutter mobile app called <Link href={'https://github.com/A00838521/ForaneoApp'} className='font-bold text-green-700'>Foraneo App</Link> that helps students find the best sevices, restaurants, build their comunity and get tips from other students near their campus.<br/>
+                  &gt; Demoed a flutter mobile app called <Link href={'https://github.com/A00838521/ForaneoApp'} className='text-green-400'>Foraneo App</Link> that helps students find the best sevices, restaurants, build their comunity and get tips from other students near their campus.<br/>
                   &gt; I worked on implementing the backend using firebase and the user interface using flutter.<br/>
                   &gt; I also added the geolocation feature using a flutter package to only show the user information published nearby.<br/>
                 </CardContent>
@@ -226,7 +227,7 @@ const Landing: React.FC = () => {
           </Tabs>
         </section>
 
-        <section className='h-screen'></section>  
+        <Footer></Footer>
       </main>
     );
 };

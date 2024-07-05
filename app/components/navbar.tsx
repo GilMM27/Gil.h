@@ -26,7 +26,7 @@ const Navbar: React.FC = () => {
             <button onClick={() => scrollToPosition(1950)} className='mx-5 hover:text-green-700 transition duration-300 ease-in-out'>Experience</button>
             <button onClick={() => scrollToPosition(2600)} className='mx-5 hover:text-green-700 transition duration-300 ease-in-out'>Hackathons</button>
         </div>
-        <button className='w-20 h-8 hover:scale-110 transition duration-300 ease-in-out bg-sky-950 rounded-xl bg-opacity-50' onClick={handleOpen}>CV</button>
+        <button className='w-20 h-8 hover:scale-110 transition duration-300 ease-in-out bg-sky-950 rounded-xl' onClick={handleOpen}>CV</button>
 
         <Modal
           open={open}

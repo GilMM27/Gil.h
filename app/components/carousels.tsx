@@ -45,7 +45,7 @@ const Carousels = () => {
                         <span className="text-xl font-semibold text-white bottom-4 left-6 absolute">
                           {langNames[index]}
                         </span>
-                        <span className="text-xl  text-green-300 bottom-4 right-6 absolute">
+                        <span className="text-xl text-green-400 bottom-4 right-6 absolute">
                           {langTime[index]}
                         </span>
                       </CardContent>
