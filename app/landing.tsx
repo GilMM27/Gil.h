@@ -50,96 +50,111 @@ const Landing: React.FC = () => {
               <TabsTrigger value="OMI">OMI</TabsTrigger>
             </TabsList>
             <TabsContent value="Smiley">
-              <Card className='bg-neutral-900 border-0 text-white text-lg h-[25rem]'>
-                <CardHeader>
-                  <CardTitle className='text-3xl'>Smiley</CardTitle>
-                  <CardDescription className='text-xl'>
-                    Developed a web page for a local business in Monterrey called Smiley.
-                  </CardDescription>
-                </CardHeader>
-                <CardContent className="space-y-2">
-                  &gt; The <Link href={'https://smiley-web-app.web.app'} className='text-green-400'>page</Link> was developed using the Angular framework and Firebase for the backend.<br/>
-                  &gt; It handles user authentication, a shopping cart, and a database for the tickets.<br/>
-                  &gt; The page is currently being used by the business and has been a great success. We have registered 1271 user accounts.<br/>
-                </CardContent>
-                <CardFooter>
-                  This team has been a great experience and has taught me a lot about teamwork, project management, and robotics.
-                </CardFooter>
+              <Card className='bg-neutral-900 border-0 text-white text-lg h-[30rem] flex items-center relative'>
+                <div className='w-3/4 pr-10'>
+                  <CardHeader>
+                    <CardTitle className='text-3xl'>Smiley</CardTitle>
+                    <CardDescription className='text-xl'>
+                      Developed a web page for a local business in Monterrey called Smiley.
+                    </CardDescription>
+                  </CardHeader>
+                  <CardContent className="space-y-2">
+                    &gt; The <Link href={'https://smiley-web-app.web.app'} className='text-green-400'>page</Link> was developed using the Angular framework and Firebase for the backend.<br/>
+                    &gt; It handles user authentication, a shopping cart, and a database for the tickets.<br/>
+                    &gt; The page is currently being used by the business and has been a great success. We have registered 1271 user accounts.<br/>
+                  </CardContent>
+                  <CardFooter>
+                    This page was my first freelance project and it was a great learning experience.
+                  </CardFooter>
+                </div>
+                <Image src='/assets/experience/smiley.jpeg' width={918} height={1032} alt="Smiley" className="h-3/4 w-1/4 object-cover ml-10 absolute right-10 rounded-xl"/>
               </Card>
             </TabsContent>
             <TabsContent value="PDEI">
-              <Card className='bg-neutral-900 border-0 text-white text-lg h-[25rem]'>
-                <CardHeader>
-                  <CardTitle className='text-3xl'>PDEI united</CardTitle>
-                  <CardDescription className='text-xl'>
-                    Developed a web page for a business called PDEI united.
-                  </CardDescription>
-                </CardHeader>
-                <CardContent className="space-y-2">
-                  &gt; Currently developing using Next.js and Firebase for the backend.<br/>
-                  &gt; Designed the user interface using Figma.<br/>
-                </CardContent>
-                <CardFooter>
-                  -
-                </CardFooter>
+              <Card className='bg-neutral-900 border-0 text-white text-lg h-[30rem] flex items-center relative'>
+                <div className='w-1/2 pr-10'>
+                  <CardHeader>
+                    <CardTitle className='text-3xl'>PDEI united</CardTitle>
+                    <CardDescription className='text-xl'>
+                      Developed a web page for a business called PDEI united.
+                    </CardDescription>
+                  </CardHeader>
+                  <CardContent className="space-y-2">
+                    &gt; Currently developing using Next.js and Firebase for the backend.<br/>
+                    &gt; Designed the user interface using Figma.<br/>
+                  </CardContent>
+                  <CardFooter>
+                    Work in progress.
+                  </CardFooter>
+                </div>
+                <Image src='/assets/experience/pdei.png' width={918} height={1032} alt="PDEI united" className="h-3/4 w-1/2 object-cover ml-10 absolute right-10 rounded-xl"/>
               </Card>
             </TabsContent>
             <TabsContent value="RoBorregos">
-              <Card className='bg-neutral-900 border-0 text-white text-lg h-[25rem]'>
-                <CardHeader>
-                  <CardTitle className='text-3xl'>RoBorregos</CardTitle>
-                  <CardDescription className='text-xl'>
-                    I'm currently competing in robotics with the representative team of Tecnológico de Monterrey Campus Monterrey.
-                  </CardDescription>
-                </CardHeader>
-                <CardContent className="space-y-2">
-                  &gt; Competed in the 2024 Mexican Robotics Tournament (TMR) and placed 2nd in the Junior Rescue Maze category. I designed and programmed the <Link href={'https://github.com/RoBorregos/RescueMaze2024/tree/nacionalNewMovement'} className='text-green-400'>maze exploring algorithm</Link> in both C++ and arduino based on the Depth First Search and Dijkstra's shortest path algorithms. I also worked on the movement and vision integrations which included serial communication with a Jetson Nano and several PID controls.<br/>
-                  &gt; Worked on an IOT project for the lockers in the RoBorrego's lab consisting of a websocket used to communicate with ESP32 microcontrollers and a web app for the user interface using the T3 tech stack.<br/>
-                  &gt; Started working on the RoboCup @home Human Robot Interaction and manipulation teams. I'm currently learning ROS and Gazebo.
-                </CardContent>
-                <CardFooter>
-                  This team has been a great experience and has taught me a lot about teamwork, project management, and robotics.
-                </CardFooter>
+              <Card className='bg-neutral-900 border-0 text-white text-lg h-[30rem] flex items-center relative'>
+                <div className='w-3/4 pr-10'>
+                  <CardHeader>
+                    <CardTitle className='text-3xl'>RoBorregos</CardTitle>
+                    <CardDescription className='text-xl'>
+                      I'm currently competing in robotics with the representative team of Tecnológico de Monterrey Campus Monterrey.
+                    </CardDescription>
+                  </CardHeader>
+                  <CardContent className="space-y-2">
+                    &gt; Competed in the 2024 Mexican Robotics Tournament (TMR) and placed 2nd in the Junior Rescue Maze category. I designed and programmed the <Link href={'https://github.com/RoBorregos/RescueMaze2024/tree/nacionalNewMovement'} className='text-green-400'>maze exploring algorithm</Link> in both C++ and arduino based on the Depth First Search and Dijkstra's shortest path algorithms. I also worked on the movement and vision integrations which included serial communication with a Jetson Nano and several PID controls.<br/>
+                    &gt; Worked on an IOT project for the lockers in the RoBorrego's lab consisting of a websocket used to communicate with ESP32 microcontrollers and a web app for the user interface using the T3 tech stack.<br/>
+                    &gt; Started working on the RoboCup @home Human Robot Interaction and manipulation teams. I'm currently learning ROS and Gazebo.
+                  </CardContent>
+                  <CardFooter>
+                    This team has been a great experience and has taught me a lot about teamwork, project management, and robotics.
+                  </CardFooter>
+                </div>
+                <Image src='/assets/experience/roborregos.png' width={918} height={1032} alt="RoBorregos" className="h-3/4 w-1/4 object-contain ml-10 absolute right-10 rounded-xl"/>
               </Card>
             </TabsContent>
             <TabsContent value="FTC">
-              <Card className='bg-neutral-900 border-0 text-white text-lg h-[25rem]'>
-                <CardHeader>
-                  <CardTitle className='text-3xl'>FTC</CardTitle>
-                  <CardDescription className='text-xl'>
-                    Competed in the FIRST Tech Challenge as leader of the team Zorrobots #9164 of the CETYS Universidad Campus Internacional Ensenada during the 2022-2023 season.
-                  </CardDescription>
-                </CardHeader>
-                <CardContent className="space-y-2">
-                  &gt; Reached the semifinals in the Mexico City national tournament and advanced to the regional stage in San Diego.<br/>
-                  &gt; Coded both the autonomous and teleop programs for the robot in Java using the FTC SDK and Android Studio. Used encoders along side the Roadrunner library for odometry and path following. Implemented april tag detection and processing.<br/>
-                  &gt; Functioned as coach player during the matches and as the team's spokesperson during the interviews.<br/>
-                  &gt; Helped with the design and construction of the robot.<br/>
-                  &gt; Wrote, composed and filmed a song which won us the Promote Award in the San Diego Regional.<br/>
-                </CardContent>
-                <CardFooter>
-                  I really enjoyed my time competing with this team and adquired a lot of skills which would help me in the future.
-                </CardFooter>
+              <Card className='bg-neutral-900 border-0 text-white text-lg h-[30rem] flex items-center relative'>
+                <div className='w-3/4 pr-10'>
+                  <CardHeader>
+                    <CardTitle className='text-3xl'>FTC</CardTitle>
+                    <CardDescription className='text-xl'>
+                      Competed in the FIRST Tech Challenge as leader of the team Zorrobots #9164 of the CETYS Universidad Campus Internacional Ensenada during the 2022-2023 season.
+                    </CardDescription>
+                  </CardHeader>
+                  <CardContent className="space-y-2">
+                    &gt; Reached the semifinals in the Mexico City national tournament and advanced to the regional stage in San Diego.<br/>
+                    &gt; Coded both the autonomous and teleop programs for the robot in Java using the FTC SDK and Android Studio. Used encoders along side the Roadrunner library for odometry and path following. Implemented april tag detection and processing.<br/>
+                    &gt; Functioned as coach player during the matches and as the team's spokesperson during the interviews.<br/>
+                    &gt; Helped with the design and construction of the robot.<br/>
+                    &gt; Wrote, composed and filmed a song which won us the Promote Award in the San Diego Regional.<br/>
+                  </CardContent>
+                  <CardFooter>
+                    I really enjoyed my time competing with this team and adquired a lot of skills which would help me in the future.
+                  </CardFooter>
+                </div>
+                <Image src='/assets/experience/ftc.png' width={918} height={1032} alt="Smiley" className="h-3/4 w-1/4 object-contain ml-10 absolute right-10 rounded-xl"/>
               </Card>
             </TabsContent>
             <TabsContent value="OMI">
-              <Card className='bg-neutral-900 border-0 text-white text-lg h-[25rem]'>
-                <CardHeader>
-                  <CardTitle className='text-3xl'>OMI</CardTitle>
-                  <CardDescription className='text-xl'>
-                    Competed in the Mexican Informatics Olympiad during the 2020-2021 and 2021-2022 seasons, reaching the national stage in both.
-                  </CardDescription>
-                </CardHeader>
-                <CardContent className="space-y-2">
-                  &gt; Placed 36th in the 2021 national stage (bronze medal) and 16th in the 2022 national stage (silver medal).<br/>
-                  &gt; Learned about algorithms and data structures, and how to implement them in C++.<br/>
-                  &gt; Took the training and solved a lot of <Link href={'https://github.com/GilMM27/OMI'} className='text-green-400'>homeworks and OmegaUp</Link> problems. <br/>
-                  &gt; Both years I participated the traning for the international team selection.<br/>
-                  &gt; Started a competitive programming club in my school and taught the basics of C++ and algorithms to the members.
-                </CardContent>
-                <CardFooter>
-                  This competition sparked my interest in competitive programming and taught me a lot about algorithms and data structures.
-                </CardFooter>
+              <Card className='bg-neutral-900 border-0 text-white text-lg h-[30rem] flex items-center relative'>
+                <div className='w-3/4 pr-10'>
+                  <CardHeader>
+                    <CardTitle className='text-3xl'>OMI</CardTitle>
+                    <CardDescription className='text-xl'>
+                      Competed in the Mexican Informatics Olympiad during the 2020-2021 and 2021-2022 seasons, reaching the national stage in both.
+                    </CardDescription>
+                  </CardHeader>
+                  <CardContent className="space-y-2">
+                    &gt; Placed 36th in the 2021 national stage (bronze medal) and 16th in the 2022 national stage (silver medal).<br/>
+                    &gt; Learned about algorithms and data structures, and how to implement them in C++.<br/>
+                    &gt; Took the training and solved a lot of <Link href={'https://github.com/GilMM27/OMI'} className='text-green-400'>homeworks and OmegaUp</Link> problems. <br/>
+                    &gt; Both years I participated the traning for the international team selection.<br/>
+                    &gt; Started a competitive programming club in my school and taught the basics of C++ and algorithms to the members.
+                  </CardContent>
+                  <CardFooter>
+                    This competition sparked my interest in competitive programming and taught me a lot about algorithms and data structures.
+                  </CardFooter>
+                </div>
+                <Image src='/assets/experience/omi.png' width={918} height={1032} alt="Smiley" className="h-3/4 w-1/4 object-contain ml-10 absolute right-10 rounded-xl"/>
               </Card>
             </TabsContent>
           </Tabs>

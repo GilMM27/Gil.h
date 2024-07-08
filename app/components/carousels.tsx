@@ -13,10 +13,10 @@ import Image from "next/image";
 import Autoplay from "embla-carousel-autoplay"
 
 const Carousels = () => {
-    const languages = ['/assets/C++_logo.png', '/assets/cSharp.png', '/assets/java-logo-1.png', '/assets/Python-logo.png', '/assets/javascript.webp', '/assets/Typescript_logo_2020.svg.png', '/assets/Matlab_Logo.png'];
+    const languages = ['/assets/languages/C++_logo.png', '/assets/languages/cSharp.png', '/assets/languages/java-logo-1.png', '/assets/languages/Python-logo.png', '/assets/languages/javascript.webp', '/assets/languages/Typescript_logo_2020.svg.png', '/assets/languages/Matlab_Logo.png'];
     const langNames = ["C++", "C#","Java", "Python", "JavaScript", "TypeScript", "Matlab"];
     const langTime = ["4 years", "4 years","3 years", "1 year", "1 year", "1 year", "1 year"]
-    const technologies = ['/assets/unity.png', '/assets/arduino.png', '/assets/android.webp', '/assets/github.png', '/assets/html.png', '/assets/tailwind.webp', '/assets/angular.png', '/assets/react.webp', '/assets/nextjs.png', '/assets/firebase.png', '/assets/R.png', '/assets/flutter.png', '/assets/ubuntu.png'];
+    const technologies = ['/assets/technologies/unity.png', '/assets/technologies/arduino.png', '/assets/technologies/android.webp', '/assets/technologies/github.png', '/assets/technologies/html.png', '/assets/technologies/tailwind.webp', '/assets/technologies/angular.png', '/assets/technologies/react.webp', '/assets/technologies/nextjs.png', '/assets/technologies/firebase.png', '/assets/technologies/R.png', '/assets/technologies/flutter.png', '/assets/technologies/ubuntu.png'];
     const techNames = ['Unity Game Engine', 'Arduino', 'Android SDK', 'GitHub', 'HTML', 'Tailwind CSS', 'Angular', 'React', 'Next.js', 'Firebase', 'R', 'Flutter', 'Ubuntu'];
 
   return (
