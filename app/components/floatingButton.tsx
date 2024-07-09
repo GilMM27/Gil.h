@@ -1,4 +1,3 @@
-// components/FloatingButton.tsx
 import React from 'react';
 
 interface FloatingButtonProps {

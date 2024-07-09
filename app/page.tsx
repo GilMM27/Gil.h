@@ -1,6 +1,6 @@
 import { NextUIProvider } from "@nextui-org/react";
 import { Chakra_Petch } from "next/font/google";
-import Landing from "./landing";
+import Landing from "./components/landing";
 
 const code = Chakra_Petch({
   subsets: ["latin"],

@@ -26,9 +26,9 @@ const Terminal: React.FC = () => {
     const messagesEndRef = useRef<HTMLDivElement>(null);
     const inputRef = useRef<HTMLInputElement>(null);
 
-    const commands = ['help', 'clear', 'ls', 'open', 'goto']; // List of recognized commands
-    const lsOutputs = ['CV.pdf']; // Valid options for the ls command
-    const validGotoOptions = ['Gil.h', 'Languages', 'Technologies', 'Experience', 'Hackathons']; // Valid options for the goto command
+    const commands = ['help', 'clear', 'ls', 'open', 'goto']; 
+    const lsOutputs = ['CV.pdf']; 
+    const validGotoOptions = ['Gil.h', 'Languages', 'Technologies', 'Experience', 'Hackathons']; 
 
     const scrollToBottom = () => {
         messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
@@ -67,7 +67,7 @@ const Terminal: React.FC = () => {
               const option = commandParts[1];
               if (validGotoOptions.includes(option)) {
                 setMessages([...messages, `> ${command}`, `Navigating to ${option}...`]);
-                // Call the function with the valid option
+                
                 goto(option);
               } else {
                 setMessages([...messages, `> ${command}`, `Error: Run 'goto -h' for valid options`]);
@@ -87,7 +87,7 @@ const Terminal: React.FC = () => {
               setMessages([...messages, `> ${command}`, `To open a file, run 'open ' followed by the file name with its extension. To see valid options, run 'ls' which lists the available files in your current directory. Example: open CV.pdf`]);
             } else if (commandParts[1] === 'CV.pdf') {
               setMessages([...messages, `> ${command}`, `Opening CV...`]);
-              // Call the function with the valid option
+              
               setTimeout(() => {
                 handleOpenCV();
               }, 1000);
@@ -103,9 +103,9 @@ const Terminal: React.FC = () => {
     };
 
     const goto = (option: string) => {
-        // Implement your functionality for the goto command here
+        
         console.log(`Navigating to ${option}`);
-        // For demonstration, we'll just log the option to the console
+        
         setTimeout(() => {
             handleClose();
             if (option === 'Gil.h') {
@@ -126,8 +126,6 @@ const Terminal: React.FC = () => {
         inputRef.current?.focus();
     };
 
-    // Floating button
-
     const [showButton, setShowButton] = useState(false);
 
     useEffect(() => {
@@ -138,10 +136,7 @@ const Terminal: React.FC = () => {
           setShowButton(false);
         }
       };
-
       window.addEventListener('scroll', handleScroll);
-
-      // Clean up the event listener on component unmount
       return () => {
         window.removeEventListener('scroll', handleScroll);
       };
@@ -154,7 +149,6 @@ const Terminal: React.FC = () => {
       handleOpen();
       setTimeout(() => handleClick(), 100);
     };
-
 
     return (
         <section className='grid grid-cols-2 gap-10 mx-28 mt-28 items-center place-items-center'>

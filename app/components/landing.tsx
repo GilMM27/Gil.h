@@ -3,12 +3,14 @@ import Image from "next/image";
 import Link from "next/link";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
-import Navbar from "./components/navbar";
-import Terminal from "./components/terminal";
-import Carousels from './components/carousels';
-import Footer from './components/footer';
+import Navbar from "./navbar";
+import Terminal from "./terminal";
+import Carousels from './carousels';
+import Footer from './footer';
+import exp from 'constants';
 
 const Landing: React.FC = () => {
+    const experience = ['/assets/experience/smiley.jpeg', '/assets/experience/pdei.png', '/assets/experience/roborregos.png', '/assets/experience/ftc.png', '/assets/experience/omi.png'];
     return (
       <main>
         <Navbar/>
@@ -28,12 +30,12 @@ const Landing: React.FC = () => {
         <Terminal></Terminal>
 
         <Card className="text-white mt-28 bg-neutral-900 p-3 mx-28 rounded-xl border-0">
-          <CardHeader className="text-green-400 text-3xl">// Hi! just a little introduction about me, feel free to skip.</CardHeader>
+          <CardHeader className="text-green-400 text-3xl">Hi! just a little introduction about me, feel free to skip.</CardHeader>
           <CardContent className='text-xl'>
-            &gt; I'm a software engineer, a web developer, and a computer science student at Tecnológico de Monterrey Campus Monterrey.<br/>
+            &gt; I&apos;m a software engineer, a web developer, and a computer science student at Tecnológico de Monterrey Campus Monterrey.<br/>
             &gt; Been coding since 2020, as every other programmer, my first interest was in how video games were made.<br/>
             &gt; From then I moved onto competitive programming, baby steps.<br/>
-            &gt; I'm currently competing in robotics, freelance web development, and working on personal projects.<br/>
+            &gt; I&apos;m currently competing in robotics, freelance web development, and working on personal projects.<br/>
           </CardContent>
         </Card>
 
@@ -67,7 +69,7 @@ const Landing: React.FC = () => {
                     This page was my first freelance project and it was a great learning experience.
                   </CardFooter>
                 </div>
-                <Image src='/assets/experience/smiley.jpeg' width={918} height={1032} alt="Smiley" className="h-3/4 w-1/4 object-cover ml-10 absolute right-10 rounded-xl"/>
+                <Image src={experience[0]} width={918} height={1032} alt="Smiley" className="h-3/4 w-1/4 object-cover ml-10 absolute right-10 rounded-xl"/>
               </Card>
             </TabsContent>
             <TabsContent value="PDEI">
@@ -87,7 +89,7 @@ const Landing: React.FC = () => {
                     Work in progress.
                   </CardFooter>
                 </div>
-                <Image src='/assets/experience/pdei.png' width={918} height={1032} alt="PDEI united" className="h-3/4 w-1/2 object-cover ml-10 absolute right-10 rounded-xl"/>
+                <Image src={experience[1]} width={918} height={1032} alt="PDEI united" className="h-3/4 w-1/2 object-cover ml-10 absolute right-10 rounded-xl"/>
               </Card>
             </TabsContent>
             <TabsContent value="RoBorregos">
@@ -96,19 +98,19 @@ const Landing: React.FC = () => {
                   <CardHeader>
                     <CardTitle className='text-3xl'>RoBorregos</CardTitle>
                     <CardDescription className='text-xl'>
-                      I'm currently competing in robotics with the representative team of Tecnológico de Monterrey Campus Monterrey.
+                      I&apos;m currently competing in robotics with the representative team of Tecnológico de Monterrey Campus Monterrey.
                     </CardDescription>
                   </CardHeader>
                   <CardContent className="space-y-2">
-                    &gt; Competed in the 2024 Mexican Robotics Tournament (TMR) and placed 2nd in the Junior Rescue Maze category. I designed and programmed the <Link href={'https://github.com/RoBorregos/RescueMaze2024/tree/nacionalNewMovement'} className='text-green-400'>maze exploring algorithm</Link> in both C++ and arduino based on the Depth First Search and Dijkstra's shortest path algorithms. I also worked on the movement and vision integrations which included serial communication with a Jetson Nano and several PID controls.<br/>
-                    &gt; Worked on an IOT project for the lockers in the RoBorrego's lab consisting of a websocket used to communicate with ESP32 microcontrollers and a web app for the user interface using the T3 tech stack.<br/>
-                    &gt; Started working on the RoboCup @home Human Robot Interaction and manipulation teams. I'm currently learning ROS and Gazebo.
+                    &gt; Competed in the 2024 Mexican Robotics Tournament (TMR) and placed 2nd in the Junior Rescue Maze category. I designed and programmed the <Link href={'https://github.com/RoBorregos/RescueMaze2024/tree/nacionalNewMovement'} className='text-green-400'>maze exploring algorithm</Link> in both C++ and arduino based on the Depth First Search and Dijkstra&apos;s shortest path algorithms. I also worked on the movement and vision integrations which included serial communication with a Jetson Nano and several PID controls.<br/>
+                    &gt; Worked on an IOT project for the lockers in the RoBorrego&apos;s lab consisting of a websocket used to communicate with ESP32 microcontrollers and a web app for the user interface using the T3 tech stack.<br/>
+                    &gt; Started working on the RoboCup @home Human Robot Interaction and manipulation teams. I&apos;m currently learning ROS and Gazebo.
                   </CardContent>
                   <CardFooter>
                     This team has been a great experience and has taught me a lot about teamwork, project management, and robotics.
                   </CardFooter>
                 </div>
-                <Image src='/assets/experience/roborregos.png' width={918} height={1032} alt="RoBorregos" className="h-3/4 w-1/4 object-contain ml-10 absolute right-10 rounded-xl"/>
+                <Image src={experience[2]} width={918} height={1032} alt="RoBorregos" className="h-3/4 w-1/4 object-contain ml-10 absolute right-10 rounded-xl"/>
               </Card>
             </TabsContent>
             <TabsContent value="FTC">
@@ -123,7 +125,7 @@ const Landing: React.FC = () => {
                   <CardContent className="space-y-2">
                     &gt; Reached the semifinals in the Mexico City national tournament and advanced to the regional stage in San Diego.<br/>
                     &gt; Coded both the autonomous and teleop programs for the robot in Java using the FTC SDK and Android Studio. Used encoders along side the Roadrunner library for odometry and path following. Implemented april tag detection and processing.<br/>
-                    &gt; Functioned as coach player during the matches and as the team's spokesperson during the interviews.<br/>
+                    &gt; Functioned as coach player during the matches and as the team&apos;s spokesperson during the interviews.<br/>
                     &gt; Helped with the design and construction of the robot.<br/>
                     &gt; Wrote, composed and filmed a song which won us the Promote Award in the San Diego Regional.<br/>
                   </CardContent>
@@ -131,7 +133,7 @@ const Landing: React.FC = () => {
                     I really enjoyed my time competing with this team and adquired a lot of skills which would help me in the future.
                   </CardFooter>
                 </div>
-                <Image src='/assets/experience/ftc.png' width={918} height={1032} alt="Smiley" className="h-3/4 w-1/4 object-contain ml-10 absolute right-10 rounded-xl"/>
+                <Image src={experience[3]} width={918} height={1032} alt="FTC" className="h-3/4 w-1/4 object-contain ml-10 absolute right-10 rounded-xl"/>
               </Card>
             </TabsContent>
             <TabsContent value="OMI">
@@ -154,7 +156,7 @@ const Landing: React.FC = () => {
                     This competition sparked my interest in competitive programming and taught me a lot about algorithms and data structures.
                   </CardFooter>
                 </div>
-                <Image src='/assets/experience/omi.png' width={918} height={1032} alt="Smiley" className="h-3/4 w-1/4 object-contain ml-10 absolute right-10 rounded-xl"/>
+                <Image src={experience[4]} width={918} height={1032} alt="OMI" className="h-3/4 w-1/4 object-contain ml-10 absolute right-10 rounded-xl"/>
               </Card>
             </TabsContent>
           </Tabs>
@@ -179,7 +181,7 @@ const Landing: React.FC = () => {
                 </CardHeader>
                 <CardContent className="space-y-2">
                   &gt; Developed a web project called <Link href={'https://devpost.com/software/speed-stocks'} className='text-green-400'>Speed Stocks</Link>, a game that simulates common trends in the stock market in a fun and enjoyable way.<br/>
-                  &gt; I worked on the stock's price line generation and display using javascript<br/>
+                  &gt; I worked on the stock&apos;s price line generation and display using javascript<br/>
                 </CardContent>
                 <CardFooter>
                   This was my first time using javascript and working on a larger scale web project and I learned a lot during this hackathon.
@@ -195,7 +197,7 @@ const Landing: React.FC = () => {
                   </CardDescription>
                 </CardHeader>
                 <CardContent className="space-y-2">
-                  &gt; Me and my team of 4 members developed game called <Link href={'https://github.com/GilMM27/ShiftHappens'} className='text-green-400'>Shift Happens</Link> in python that simulated a car's manual transmition using pygame.<br/>
+                  &gt; Me and my team of 4 members developed game called <Link href={'https://github.com/GilMM27/ShiftHappens'} className='text-green-400'>Shift Happens</Link> in python that simulated a car&apos;s manual transmition using pygame.<br/>
                   &gt; The code generates random math functions to draw the road.<br/>
                   &gt; The player is responsable for shifting the gears on the right time to keep the car running.<br/>
                 </CardContent>
@@ -209,7 +211,7 @@ const Landing: React.FC = () => {
                 <CardHeader>
                   <CardTitle className='text-3xl'>Lincehacks (2024)</CardTitle>
                   <CardDescription className='text-xl'>
-                    Participated in MLH's Lincehacks 36-hour hackathon.
+                    Participated in MLH&apos;s Lincehacks 36-hour hackathon.
                   </CardDescription>
                 </CardHeader>
                 <CardContent className="space-y-2">

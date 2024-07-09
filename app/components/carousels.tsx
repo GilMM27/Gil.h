@@ -31,7 +31,6 @@ const Carousels = () => {
             ]}
             opts={{
               align: "start",
-              // loop: true,
             }}
             className="w-full mx-28"
           >
@@ -69,7 +68,6 @@ const Carousels = () => {
             ]}
             opts={{
               align: "start",
-              // loop: true,
             }}
             className="w-full mx-28"
           >
