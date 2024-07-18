@@ -11,6 +11,7 @@ import {
 import { Card, CardContent } from "@/components/ui/card"
 import Image from "next/image";
 import Autoplay from "embla-carousel-autoplay"
+import { useRef } from 'react';
 
 const Carousels = () => {
     const languages = ['/assets/languages/C++_logo.png', '/assets/languages/cSharp.png', '/assets/languages/java-logo-1.png', '/assets/languages/Python-logo.png', '/assets/languages/javascript.webp', '/assets/languages/Typescript_logo_2020.svg.png', '/assets/languages/Matlab_Logo.png'];
@@ -21,7 +22,8 @@ const Carousels = () => {
 
   return (
     <section>
-        <div className='w-full text-center mt-28 text-5xl text-green-700'>Porgramming languages</div>
+      <div className='h-14' id='languages'></div>
+      <div className='w-full text-center mt-14 text-5xl text-green-700'>Porgramming languages</div>
         <section className='flex justify-center mt-10'>
           <Carousel
             plugins={[
@@ -36,10 +38,10 @@ const Carousels = () => {
           >
             <CarouselContent>
               {Array.from({ length: languages.length }).map((_, index) => (
-                <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/5 w-full">
+                <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/3 xl:basis-1/5 w-full">
                   <div className="p-1">
                     <Card className='border-0 bg-neutral-900'>
-                      <CardContent className="flex aspect-square items-center justify-center p-6 bg-neutral-900 rounded-xl relative">
+                      <CardContent className="flex items-center justify-center p-6 bg-neutral-900 rounded-xl relative h-[15rem]">
                         <Image src={languages[index]} alt='language logo' width={918} height={1032} className='h-36 w-fit top-6 absolute'/>
                         <span className="text-xl font-semibold text-white bottom-4 left-6 absolute">
                           {langNames[index]}
@@ -58,7 +60,8 @@ const Carousels = () => {
           </Carousel>
         </section>
 
-        <div className='w-full text-center mt-28 text-5xl text-green-700'>Technologies</div>
+        <div className='h-14' id='technologies'></div>
+        <div className='w-full text-center mt-14 text-5xl text-green-700'>Technologies</div>
         <section className='flex justify-center mt-10'>
           <Carousel
             plugins={[
@@ -73,10 +76,10 @@ const Carousels = () => {
           >
             <CarouselContent>
               {Array.from({ length: technologies.length }).map((_, index) => (
-                <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/5 w-full">
+                <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/3 xl:basis-1/5 w-full">
                   <div className="p-1">
                     <Card className='border-0 bg-neutral-900'>
-                      <CardContent className="flex aspect-square items-center justify-center p-6 bg-neutral-900 rounded-xl relative">
+                      <CardContent className="flex items-center justify-center p-6 bg-neutral-900 rounded-xl relative h-[15rem]">
                         <Image src={technologies[index]} alt='tech' width={918} height={1032} className='h-36 w-fit top-6 absolute'/>
                         <span className="text-xl font-semibold text-white bottom-4 left-6 absolute">
                           {techNames[index]}
@@ -92,7 +95,7 @@ const Carousels = () => {
           </Carousel>
         </section>
     </section>
-  )
-}
+  );
+};
 
-export default Carousels
+export default Carousels;

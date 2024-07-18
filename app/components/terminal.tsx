@@ -14,11 +14,12 @@ const Terminal: React.FC = () => {
     const handleOpenCV = () => setOpenCV(true);
     const handleCloseCV = () => setOpenCV(false);
 
-    const scrollToPosition = (position: number) => {
-        window.scrollTo({
-            top: position,
-            behavior: 'smooth',
-        });
+    const scrollToComponent = (id: string) => {
+      console.log(`Scrolling to ${id}`);
+      const element = document.getElementById(id);
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+      }
     };
 
     const [messages, setMessages] = useState<string[]>(['Welcome to the terminal! Run "help" for more information.']);
@@ -105,21 +106,21 @@ const Terminal: React.FC = () => {
     const goto = (option: string) => {
         
         console.log(`Navigating to ${option}`);
-        
+        // SHIT NOT WORKINNNNG
         setTimeout(() => {
-            handleClose();
-            if (option === 'Gil.h') {
-                scrollToPosition(0);
-            } else if (option === 'Languages') {
-                scrollToPosition(1100);
-            } else if (option === 'Technologies') {
-                scrollToPosition(1530);
-            } else if (option === 'Experience') {
-                scrollToPosition(1950);
-            } else if (option === 'Hackathons') {
-                scrollToPosition(2600);
-            }
-          }, 1000);
+          handleClose();
+          if (option === 'Gil.h') {
+              scrollToComponent('title');
+          } else if (option === 'Languages') {
+              scrollToComponent('languages');
+          } else if (option === 'Technologies') {
+              scrollToComponent('technologies');
+          } else if (option === 'Experience') {
+              scrollToComponent('experience');
+          } else if (option === 'Hackathons') {
+              scrollToComponent('hackathons');
+          }
+        }, 1000);
     };
 
     const handleClick = () => {
@@ -151,7 +152,7 @@ const Terminal: React.FC = () => {
     };
 
     return (
-        <section className='grid grid-cols-2 gap-10 mx-28 mt-28 items-center place-items-center'>
+        <section className='grid grid-cols-2 gap-10 lg:mx-28 mx-10 mt-14 lg:mt-28 items-center place-items-center'>
             <Modal
               open={openCV}
               onClose={handleCloseCV}
@@ -195,10 +196,10 @@ const Terminal: React.FC = () => {
             </Modal>
             
             <div>
-                <div className='text-green-700 text-5xl text-end'>Rather not scroll?</div>
-                <div className='text-white text-7xl text-end'>Try the terminal!</div>
+                <div className='text-green-700 lg:text-5xl text-3xl text-end'>Rather not scroll?</div>
+                <div className='text-white lg:text-7xl text-4xl text-end'>Try the terminal!</div>
             </div>
-            <button className='w-full my-8 mx-10 hover:scale-105 transition duration-300 ease-in-out text-xl bg-sky-950 p-3 rounded-xl focus:outline-none' onClick={OpenTerminal}>
+            <button className='w-full my-8 mx-10 hover:scale-105 transition duration-300 ease-in-out lg:text-xl text-xs bg-sky-950 p-3 rounded-xl focus:outline-none' onClick={OpenTerminal}>
                 LAUNCH TERMINAL
             </button>
             <FloatingButton onClick={OpenTerminal} isVisible={showButton} />

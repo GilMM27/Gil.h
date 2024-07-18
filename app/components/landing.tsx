@@ -7,31 +7,31 @@ import Navbar from "./navbar";
 import Terminal from "./terminal";
 import Carousels from './carousels';
 import Footer from './footer';
-import exp from 'constants';
+import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuLabel, DropdownMenuSeparator, DropdownMenuTrigger, } from "@/components/ui/dropdown-menu"
 
 const Landing: React.FC = () => {
     const experience = ['/assets/experience/smiley.jpeg', '/assets/experience/pdei.png', '/assets/experience/roborregos.png', '/assets/experience/ftc.png', '/assets/experience/omi.png'];
     return (
-      <main>
+      <main id='title'>
         <Navbar/>
 
         <div className="flex bg-gradient-to-l from-green-950 to-black m-10">
-          <section className="relative w-96 h-96 overflow-hidden">
+          <section className="relative w-96 h-96 overflow-hidden hidden lg:block">
             <Image src='/assets/yo.jpg' width={918} height={1032} alt="Image" className="absolute w-full h-full object-cover"/>
           </section>
-          <section className="ml-10 text-green-700 flex items-center">
+          <section className="lg:ml-10 text-green-700 flex items-center">
             <div>
-              <div className="text-5xl">Who is:</div>
-              <div className="text-9xl">Gilberto Malagamba?</div>
+              <div className="text-3xl lg:text-5xl">Who is:</div>
+              <div className="text-5xl lg:text-9xl">Gilberto Malagamba?</div>
             </div>
           </section>
         </div>
 
         <Terminal></Terminal>
 
-        <Card className="text-white mt-28 bg-neutral-900 p-3 mx-28 rounded-xl border-0">
-          <CardHeader className="text-green-400 text-3xl">Hi! just a little introduction about me, feel free to skip.</CardHeader>
-          <CardContent className='text-xl'>
+        <Card className="text-white mt-14 lg:mt-28 bg-neutral-900 p-3 mx-10 lg:mx-28 rounded-xl border-0">
+          <CardHeader className="text-green-400 text-2xl lg:text-3xl">Hi! just a little introduction about me, feel free to skip.</CardHeader>
+          <CardContent className='text-lg lg:text-xl'>
             &gt; I&apos;m a software engineer, a web developer, and a computer science student at Tecnológico de Monterrey Campus Monterrey.<br/>
             &gt; Been coding since 2020, as every other programmer, my first interest was in how video games were made.<br/>
             &gt; From then I moved onto competitive programming, baby steps.<br/>
@@ -39,21 +39,37 @@ const Landing: React.FC = () => {
           </CardContent>
         </Card>
 
-        <Carousels></Carousels>
+        <div className='hidden lg:block'><Carousels></Carousels></div>
 
-        <div className='w-full text-center mt-28 text-5xl text-green-700'>Experience</div>
-        <section className='justify-center mx-28 mt-10'>
+        <div className='h-0 lg:h-14' id='experience'></div>
+        <div className='w-full text-center mt-14 text-5xl text-green-700'>Experience</div>
+        <section className='justify-center mx-10 lg:mx-28 mt-10'>
           <Tabs defaultValue="Smiley">
-            <TabsList className="grid w-full grid-cols-5 bg-neutral-900 text-white">
+            <TabsList className="w-full bg-neutral-900 text-white">
+              <div className='hidden lg:grid w-full lg:grid-cols-5'>
               <TabsTrigger value="Smiley">Smiley</TabsTrigger>
               <TabsTrigger value="PDEI">PDEI united</TabsTrigger>
               <TabsTrigger value="RoBorregos">RoBorregos</TabsTrigger>
               <TabsTrigger value="FTC">FTC</TabsTrigger>
               <TabsTrigger value="OMI">OMI</TabsTrigger>
+              </div>
+              <div className='lg:hidden block'>
+                <DropdownMenu>
+                  <DropdownMenuTrigger>Options</DropdownMenuTrigger>
+                  <DropdownMenuContent>
+                    <DropdownMenuItem><TabsTrigger value="Smiley" className='w-full'>Smiley</TabsTrigger></DropdownMenuItem>
+                    <DropdownMenuItem><TabsTrigger value="PDEI" className='w-full'>PDEI united</TabsTrigger></DropdownMenuItem>
+                    <DropdownMenuItem><TabsTrigger value="RoBorregos" className='w-full'>RoBorregos</TabsTrigger></DropdownMenuItem>
+                    <DropdownMenuItem><TabsTrigger value="FTC" className='w-full'>FTC</TabsTrigger></DropdownMenuItem>
+                    <DropdownMenuItem><TabsTrigger value="OMI" className='w-full'>OMI</TabsTrigger></DropdownMenuItem>
+                  </DropdownMenuContent>
+                </DropdownMenu>
+              </div>
             </TabsList>
+
             <TabsContent value="Smiley">
-              <Card className='bg-neutral-900 border-0 text-white text-lg h-[30rem] flex items-center relative'>
-                <div className='w-3/4 pr-10'>
+              <Card className='bg-neutral-900 border-0 text-white text-lg flex flex-col lg:flex-row items-center'>
+                <div className='lg:w-3/4 lg:pr-10'>
                   <CardHeader>
                     <CardTitle className='text-3xl'>Smiley</CardTitle>
                     <CardDescription className='text-xl'>
@@ -69,12 +85,12 @@ const Landing: React.FC = () => {
                     This page was my first freelance project and it was a great learning experience.
                   </CardFooter>
                 </div>
-                <Image src={experience[0]} width={918} height={1032} alt="Smiley" className="h-3/4 w-1/4 object-cover ml-10 absolute right-10 rounded-xl"/>
+                <Image src={experience[0]} width={918} height={1032} alt="Smiley" className="w-3/4 lg:h-3/4 lg:w-1/4 object-cover mb-10 lg:mb-0 lg:mr-10 rounded-xl"/>
               </Card>
             </TabsContent>
             <TabsContent value="PDEI">
-              <Card className='bg-neutral-900 border-0 text-white text-lg h-[30rem] flex items-center relative'>
-                <div className='w-1/2 pr-10'>
+              <Card className='bg-neutral-900 border-0 text-white text-lg flex flex-col lg:flex-row items-center'>
+                <div className='lg:w-3/4 lg:pr-10'>
                   <CardHeader>
                     <CardTitle className='text-3xl'>PDEI united</CardTitle>
                     <CardDescription className='text-xl'>
@@ -89,12 +105,12 @@ const Landing: React.FC = () => {
                     Work in progress.
                   </CardFooter>
                 </div>
-                <Image src={experience[1]} width={918} height={1032} alt="PDEI united" className="h-3/4 w-1/2 object-cover ml-10 absolute right-10 rounded-xl"/>
+                <Image src={experience[1]} width={918} height={1032} alt="PDEI united" className="w-3/4 lg:h-3/4 lg:w-1/4 object-cover mb-10 lg:mb-0 lg:mr-10 rounded-xl"/>
               </Card>
             </TabsContent>
             <TabsContent value="RoBorregos">
-              <Card className='bg-neutral-900 border-0 text-white text-lg h-[30rem] flex items-center relative'>
-                <div className='w-3/4 pr-10'>
+              <Card className='bg-neutral-900 border-0 text-white text-lg flex flex-col lg:flex-row items-center'>
+                <div className='lg:w-3/4 lg:pr-10'>
                   <CardHeader>
                     <CardTitle className='text-3xl'>RoBorregos</CardTitle>
                     <CardDescription className='text-xl'>
@@ -110,12 +126,12 @@ const Landing: React.FC = () => {
                     This team has been a great experience and has taught me a lot about teamwork, project management, and robotics.
                   </CardFooter>
                 </div>
-                <Image src={experience[2]} width={918} height={1032} alt="RoBorregos" className="h-3/4 w-1/4 object-contain ml-10 absolute right-10 rounded-xl"/>
+                <Image src={experience[2]} width={918} height={1032} alt="RoBorregos" className="w-3/4 lg:h-3/4 lg:w-1/4 object-cover mb-10 lg:mb-0 lg:mr-10 rounded-xl"/>
               </Card>
             </TabsContent>
             <TabsContent value="FTC">
-              <Card className='bg-neutral-900 border-0 text-white text-lg h-[30rem] flex items-center relative'>
-                <div className='w-3/4 pr-10'>
+              <Card className='bg-neutral-900 border-0 text-white text-lg flex flex-col lg:flex-row items-center'>
+                <div className='lg:w-3/4 lg:pr-10'>
                   <CardHeader>
                     <CardTitle className='text-3xl'>FTC</CardTitle>
                     <CardDescription className='text-xl'>
@@ -133,12 +149,12 @@ const Landing: React.FC = () => {
                     I really enjoyed my time competing with this team and adquired a lot of skills which would help me in the future.
                   </CardFooter>
                 </div>
-                <Image src={experience[3]} width={918} height={1032} alt="FTC" className="h-3/4 w-1/4 object-contain ml-10 absolute right-10 rounded-xl"/>
+                <Image src={experience[3]} width={918} height={1032} alt="FTC" className="w-3/4 lg:h-3/4 lg:w-1/4 object-cover mb-10 lg:mb-0 lg:mr-10 rounded-xl0"/>
               </Card>
             </TabsContent>
             <TabsContent value="OMI">
-              <Card className='bg-neutral-900 border-0 text-white text-lg h-[30rem] flex items-center relative'>
-                <div className='w-3/4 pr-10'>
+              <Card className='bg-neutral-900 border-0 text-white text-lg flex flex-col lg:flex-row items-center'>
+                <div className='lg:w-3/4 lg:pr-10'>
                   <CardHeader>
                     <CardTitle className='text-3xl'>OMI</CardTitle>
                     <CardDescription className='text-xl'>
@@ -156,20 +172,34 @@ const Landing: React.FC = () => {
                     This competition sparked my interest in competitive programming and taught me a lot about algorithms and data structures.
                   </CardFooter>
                 </div>
-                <Image src={experience[4]} width={918} height={1032} alt="OMI" className="h-3/4 w-1/4 object-contain ml-10 absolute right-10 rounded-xl"/>
+                <Image src={experience[4]} width={918} height={1032} alt="OMI" className="w-3/4 lg:h-3/4 lg:w-1/4 object-cover mb-10 lg:mb-0 lg:mr-10 rounded-xl"/>
               </Card>
             </TabsContent>
           </Tabs>
         </section>
 
-        <div className='w-full text-center mt-28 text-5xl text-green-700'>Hackathons</div>
-        <section className='justify-center m-28 mt-10 bg-neutral-900 rounded-xl'>
-          <Tabs defaultValue="yuHacks" className='flex'>
-            <TabsList className="grid grid-rows-5 h-fit text-white bg-neutral-900 gap-3 ml-6 mt-6">
-              <TabsTrigger value="yuHacks" className='w-52'>yuHacks</TabsTrigger>
-              <TabsTrigger value="CODICON">CODICON</TabsTrigger>
-              <TabsTrigger value="Lincehacks">Lincehacks</TabsTrigger>
-              <TabsTrigger value="Rocket">Rocket</TabsTrigger>
+        <div className='h-0 lg:h-14' id='hackathons'></div>
+        <div className='w-full text-center mt-14 text-5xl text-green-700'>Hackathons</div>
+        <section className='justify-center mx-10 lg:mx-28 mt-10 lg:bg-neutral-900 rounded-xl'>
+          <Tabs defaultValue="yuHacks" className='lg:flex'>
+            <TabsList className="lg:grid lg:grid-rows-5 lg:h-fit text-white bg-neutral-900 gap-3 lg:ml-6 lg:mt-6 w-full lg:w-fit">
+              {/* <div className=''> */}
+                <TabsTrigger value="yuHacks" className='w-52 hidden lg:block'>yuHacks</TabsTrigger>
+                <TabsTrigger value="CODICON" className='hidden lg:block'>CODICON</TabsTrigger>
+                <TabsTrigger value="Lincehacks" className='hidden lg:block'>Lincehacks</TabsTrigger>
+                <TabsTrigger value="Rocket" className='hidden lg:block'>Rocket</TabsTrigger>
+              {/* </div> */}
+              <div className='lg:hidden block w-full text-center'>
+                <DropdownMenu>
+                  <DropdownMenuTrigger>Options</DropdownMenuTrigger>
+                  <DropdownMenuContent>
+                    <DropdownMenuItem><TabsTrigger value="yuHacks" className='w-full'>yuHacks</TabsTrigger></DropdownMenuItem>
+                    <DropdownMenuItem><TabsTrigger value="CODICON" className='w-full'>CODICON</TabsTrigger></DropdownMenuItem>
+                    <DropdownMenuItem><TabsTrigger value="Lincehacks" className='w-full'>Lincehacks</TabsTrigger></DropdownMenuItem>
+                    <DropdownMenuItem><TabsTrigger value="Rocket" className='w-full'>Rocket</TabsTrigger></DropdownMenuItem>
+                  </DropdownMenuContent>
+                </DropdownMenu>
+              </div>
             </TabsList>
             <TabsContent value="yuHacks">
               <Card className='border-0 text-white text-lg bg-neutral-900'>
