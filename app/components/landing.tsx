@@ -12,7 +12,7 @@ import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuLabel,
 const Landing: React.FC = () => {
     const experience = ['/assets/experience/smiley.jpeg', '/assets/experience/pdei.png', '/assets/experience/roborregos.png', '/assets/experience/ftc.png', '/assets/experience/omi.png'];
     return (
-      <main id='title'>
+      <main id='Gil.h'>
         <Navbar/>
 
         <div className="flex bg-gradient-to-l from-green-950 to-black m-10">
@@ -39,10 +39,10 @@ const Landing: React.FC = () => {
           </CardContent>
         </Card>
 
-        <div className='hidden lg:block'><Carousels></Carousels></div>
+        <Carousels></Carousels>
 
-        <div className='h-0 lg:h-14' id='experience'></div>
-        <div className='w-full text-center mt-14 text-5xl text-green-700'>Experience</div>
+        <div className='h-0 lg:h-14' id='Experience'></div>
+        <div className='w-full text-center mt-14 text-3xl lg:text-5xl text-green-700'>Experience</div>
         <section className='justify-center mx-10 lg:mx-28 mt-10'>
           <Tabs defaultValue="Smiley">
             <TabsList className="w-full bg-neutral-900 text-white">
@@ -178,8 +178,8 @@ const Landing: React.FC = () => {
           </Tabs>
         </section>
 
-        <div className='h-0 lg:h-14' id='hackathons'></div>
-        <div className='w-full text-center mt-14 text-5xl text-green-700'>Hackathons</div>
+        <div className='h-0 lg:h-14' id='Hackathons'></div>
+        <div className='w-full text-center mt-14 text-3xl lg:text-5xl text-green-700'>Hackathons</div>
         <section className='justify-center mx-10 lg:mx-28 mt-10 lg:bg-neutral-900 rounded-xl'>
           <Tabs defaultValue="yuHacks" className='lg:flex'>
             <TabsList className="lg:grid lg:grid-rows-5 lg:h-fit text-white bg-neutral-900 gap-3 lg:ml-6 lg:mt-6 w-full lg:w-fit">
