@@ -178,25 +178,27 @@ const Landing: React.FC = () => {
           </Tabs>
         </section>
 
-        <div className='h-0 lg:h-14' id='Hackathons'></div>
-        <div className='w-full text-center mt-14 text-3xl lg:text-5xl text-green-700'>Hackathons</div>
+        <div className='h-0 lg:h-14' id='Competitions'></div>
+        <div className='w-full text-center mt-14 text-3xl lg:text-5xl text-green-700'>Competitions</div>
         <section className='justify-center mx-10 lg:mx-28 mt-10 lg:bg-neutral-900 rounded-xl'>
           <Tabs defaultValue="yuHacks" className='lg:flex'>
             <TabsList className="lg:grid lg:grid-rows-5 lg:h-fit text-white bg-neutral-900 gap-3 lg:ml-6 lg:mt-6 w-full lg:w-fit">
               {/* <div className=''> */}
-                <TabsTrigger value="yuHacks" className='w-52 hidden lg:block'>yuHacks</TabsTrigger>
-                <TabsTrigger value="CODICON" className='hidden lg:block'>CODICON</TabsTrigger>
-                <TabsTrigger value="Lincehacks" className='hidden lg:block'>Lincehacks</TabsTrigger>
+                <TabsTrigger value="Zero2Hero" className='hidden lg:block'>Zero2Hero</TabsTrigger>
                 <TabsTrigger value="Rocket" className='hidden lg:block'>Rocket</TabsTrigger>
+                <TabsTrigger value="Lincehacks" className='hidden lg:block'>Lincehacks</TabsTrigger>
+                <TabsTrigger value="CODICON" className='hidden lg:block'>CODICON</TabsTrigger>
+                <TabsTrigger value="yuHacks" className='w-52 hidden lg:block'>yuHacks</TabsTrigger>
               {/* </div> */}
               <div className='lg:hidden block w-full text-center'>
                 <DropdownMenu>
                   <DropdownMenuTrigger>Options</DropdownMenuTrigger>
                   <DropdownMenuContent>
-                    <DropdownMenuItem><TabsTrigger value="yuHacks" className='w-full'>yuHacks</TabsTrigger></DropdownMenuItem>
-                    <DropdownMenuItem><TabsTrigger value="CODICON" className='w-full'>CODICON</TabsTrigger></DropdownMenuItem>
-                    <DropdownMenuItem><TabsTrigger value="Lincehacks" className='w-full'>Lincehacks</TabsTrigger></DropdownMenuItem>
+                    <DropdownMenuItem><TabsTrigger value="Zero2Hero" className='w-full'>Zero2Hero</TabsTrigger></DropdownMenuItem>
                     <DropdownMenuItem><TabsTrigger value="Rocket" className='w-full'>Rocket</TabsTrigger></DropdownMenuItem>
+                    <DropdownMenuItem><TabsTrigger value="Lincehacks" className='w-full'>Lincehacks</TabsTrigger></DropdownMenuItem>
+                    <DropdownMenuItem><TabsTrigger value="CODICON" className='w-full'>CODICON</TabsTrigger></DropdownMenuItem>
+                    <DropdownMenuItem><TabsTrigger value="yuHacks" className='w-full'>yuHacks</TabsTrigger></DropdownMenuItem>
                   </DropdownMenuContent>
                 </DropdownMenu>
               </div>
@@ -268,6 +270,23 @@ const Landing: React.FC = () => {
                 </CardContent>
                 <CardFooter>
                   Learned a lot about data science and how to use python for data analysis during this hackathon.
+                </CardFooter>
+              </Card>
+            </TabsContent>
+            <TabsContent value="Zero2Hero">
+              <Card className='border-0 text-white text-lg bg-neutral-900'>
+                <CardHeader>
+                  <CardTitle className='text-3xl'>Zero2Hero (2024)</CardTitle>
+                  <CardDescription className='text-xl'>
+                    Won hackrock's Zero2Hero CTF for beginners with my team Cautines Calientes.
+                  </CardDescription>
+                </CardHeader>
+                <CardContent className="space-y-2">
+                  &gt; Teams from every ITESM campus competed.<br/>
+                  &gt; My team was the first to find all flags without using clues.<br/>
+                </CardContent>
+                <CardFooter>
+                  This was my first official CTF, I learnt the concept and started training for upcoming CTFs.
                 </CardFooter>
               </Card>
             </TabsContent>

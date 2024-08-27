@@ -33,7 +33,7 @@ const Terminal: React.FC = () => {
 
     const commands = ['help', 'clear', 'ls', 'open', 'goto'];
     const lsOutputs = ['CV.pdf'];
-    const validGotoOptions = ['Gil.h', 'Languages', 'Technologies', 'Experience', 'Hackathons'];
+    const validGotoOptions = ['Gil.h', 'Languages', 'Technologies', 'Experience', 'Competitions'];
 
     const scrollToBottom = () => {
         messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });

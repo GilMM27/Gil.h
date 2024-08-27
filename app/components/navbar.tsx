@@ -23,7 +23,7 @@ const Navbar: React.FC = () => {
             <button onClick={() => scrollToComponent('Languages')} className='mx-5 hover:text-green-700 transition duration-300 ease-in-out'>Programming languages</button>
             <button onClick={() => scrollToComponent('Technologies')} className='mx-5 hover:text-green-700 transition duration-300 ease-in-out'>Technologies</button>
             <button onClick={() => scrollToComponent('Experience')} className='mx-5 hover:text-green-700 transition duration-300 ease-in-out'>Experience</button>
-            <button onClick={() => scrollToComponent('Hackathons')} className='mx-5 hover:text-green-700 transition duration-300 ease-in-out'>Hackathons</button>
+            <button onClick={() => scrollToComponent('Competitions')} className='mx-5 hover:text-green-700 transition duration-300 ease-in-out'>Competitions</button>
         </div>
         <button className='w-20 h-8 hover:scale-110 transition duration-300 ease-in-out bg-sky-950 rounded-xl' onClick={handleOpen}>CV</button>
 
