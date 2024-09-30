@@ -23,7 +23,7 @@ const Carousels = () => {
   return (
     <section>
       <div className='h-5 lg:h-14' id='Languages'></div>
-      <div className='w-full text-center mt-5 lg:mt-14 text-3xl lg:text-5xl text-green-700'>Porgramming languages</div>
+      <div className='w-full text-center mt-5 lg:mt-14 text-3xl lg:text-5xl text-green-700'>Programming languages</div>
       <section className='lg:flex justify-center mt-10 hidden'>
         <Carousel
           plugins={[

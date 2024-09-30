@@ -3,6 +3,8 @@
 import Modal from '@mui/material/Modal';
 import React, { useState, useEffect, useRef } from 'react';
 import FloatingButton from './floatingButton';
+import { doc, getDoc } from 'firebase/firestore';
+import { db } from '@/lib/firebase';
 
 const Terminal: React.FC = () => {
     const [open, setOpen] = useState(false);
@@ -137,6 +139,22 @@ const Terminal: React.FC = () => {
         setTimeout(() => handleClick(), 100);
     };
 
+    const [info, setInfo] = React.useState<infoType | null>(null);
+
+    type infoType = {
+      resume: string;
+    }
+    
+    useEffect(() => {
+      const fetch = async () => {
+        const sobremiRef = doc(db, 'sobremi', 'information');
+        const sobremiSnap = await getDoc(sobremiRef);
+        setInfo(sobremiSnap.data() as infoType);
+      }
+
+      fetch();
+    })
+
     return (
         <section className='grid grid-cols-2 gap-10 lg:mx-28 mx-10 mt-14 lg:mt-28 items-center place-items-center'>
             <Modal
@@ -147,7 +165,7 @@ const Terminal: React.FC = () => {
                 className='z-50'
             >
                 <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-400 shadow-lg p-4 w-3/4 h-3/4 bg-neutral-900 focus:outline-none">
-                    <iframe src="/Resume.pdf" className='w-full h-full'></iframe>
+                    <iframe src={info?.resume} className='w-full h-full'></iframe>
                 </div>
             </Modal>
 

@@ -1,4 +1,4 @@
-import { NextUIProvider } from "@nextui-org/react";
+import { NextUIProvider, Spinner } from "@nextui-org/react";
 import { Chakra_Petch } from "next/font/google";
 import Landing from "./components/landing";
 
