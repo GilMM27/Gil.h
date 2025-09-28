@@ -1,0 +1,58 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+    provider = "prisma-client-js"
+}
+
+datasource db {
+    provider  = "postgresql"
+    url       = env("DATABASE_URL")
+    directUrl = env("DIRECT_URL")
+}
+
+enum experienceType {
+    workExperience
+    competition
+}
+
+model experience {
+    id          Int            @id @default(autoincrement())
+    title       String
+    type        experienceType
+    isPrimary   Boolean        @default(false)
+    startDate   DateTime
+    description String[]
+    header      String
+    link        String[]
+    linksName   String[]
+    imageUrl    String
+    createdAt   DateTime       @default(now())
+    updatedAt   DateTime       @updatedAt
+}
+
+enum skillType {
+    language
+    technology
+}
+
+model skill {
+    id        Int       @id @default(autoincrement())
+    name      String
+    type      skillType
+    imageUrl  String
+    years     Int
+    createdAt DateTime  @default(now())
+    updatedAt DateTime  @updatedAt
+}
+
+model aboutMe {
+    id        Int      @id @default(autoincrement())
+    title     String
+    content   String[]
+    createdAt DateTime @default(now())
+    updatedAt DateTime @updatedAt
+}
