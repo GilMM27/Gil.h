@@ -14,15 +14,14 @@ import {
 import { api } from "~/trpc/react";
 
 const Carousels = () => {
-  const { data: programmingLanguages, isLoading: isLoadingLanguages } =
-    api.skill.getSkillByType.useQuery({
-      skillType: "language",
-    });
-  const { data: technologies2, isLoading: isLoadingTechnologies } =
-    api.skill.getSkillByType.useQuery({
-      skillType: "technology",
-    });
-  const technologies = technologies2?.slice(0, 15);
+  const { data: programmingLanguages } = api.skill.getSkillByType.useQuery({
+    skillType: "language",
+  });
+  const { data: allTechnologies } = api.skill.getSkillByType.useQuery({
+    skillType: "technology",
+  });
+  // Todo fix styles for more than 15 items
+  const technologies = allTechnologies?.slice(0, 15);
 
   return (
     <section>

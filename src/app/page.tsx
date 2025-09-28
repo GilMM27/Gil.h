@@ -76,7 +76,7 @@ export default async function Home() {
         Experience
       </div>
       {experiences.length > 0 ? (
-        <section className="mx-10 mt-10 justify-center rounded-xl bg-neutral-900 lg:mx-28">
+        <section className="mx-10 mt-10 justify-center rounded-xl bg-neutral-900 lg:mx-28 lg:bg-none">
           <Tabs defaultValue={experiences[0]?.id.toString()}>
             <TabsList className="w-full bg-neutral-900">
               <div className="hidden w-full lg:flex lg:justify-evenly">
@@ -161,9 +161,12 @@ export default async function Home() {
       <div className="mt-14 w-full text-center text-3xl text-green-700 lg:text-5xl">
         Competitions
       </div>
-      <section className="mx-10 mt-10 justify-center rounded-xl lg:mx-28 lg:bg-neutral-900">
+      <section className="mx-10 mt-10 justify-center rounded-xl bg-neutral-900 lg:mx-28 lg:bg-none">
         {competitions.length > 0 ? (
-          <Tabs defaultValue={competitions[0]?.id.toString()} className="flex">
+          <Tabs
+            defaultValue={competitions[0]?.id.toString()}
+            className="flex flex-col lg:flex-row"
+          >
             <TabsList className="w-full gap-3 bg-neutral-900 text-white lg:mt-6 lg:ml-6 lg:grid lg:h-fit lg:w-fit lg:grid-rows-5">
               {competitions.map((competition) => (
                 <TabsTrigger
@@ -231,7 +234,7 @@ export default async function Home() {
                     height={1000}
                     width={1000}
                     alt="Image from the competition"
-                    className="mb-10 w-[90%] self-center rounded-xl object-cover md:col-span-1 md:mb-0 md:justify-self-center"
+                    className="mb-10 max-h-3/4 w-[90%] self-center rounded-xl object-cover md:col-span-1 md:mb-0 md:justify-self-center"
                   />
                 </Card>
               </TabsContent>
