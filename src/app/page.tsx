@@ -38,7 +38,7 @@ export default async function Home() {
   return (
     <main id="Gil.h">
       <Navbar />
-      <div className="m-10 flex bg-gradient-to-l from-green-950 to-black">
+      <div className="m-10 flex bg-gradient-to-l from-green-950 to-black py-5 lg:py-0">
         <section className="relative hidden h-96 w-96 overflow-hidden lg:block">
           <Image
             src={"/assets/yo.jpg"}
