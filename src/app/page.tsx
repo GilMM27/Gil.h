@@ -43,31 +43,40 @@ export default async function Home() {
       <MatrixEffect />
       <div className="flex h-screen flex-col">
         <section className="z-5 mt-30 ml-30 flex flex-1 items-center text-green-500">
-          <div>
-            <div className="text-3xl lg:text-5xl">Who is</div>
-            <div className="text-5xl lg:text-8xl">Gilberto Malagamba?</div>
-            <div className="mt-5 text-5xl text-white">
-              Software engineer
-              <span className="text-2xl text-gray-500"> (soon)</span>
+          <div className="flex items-center">
+            <div>
+              <div className="text-3xl lg:text-5xl">Who is</div>
+              <div className="text-5xl lg:text-8xl">Gilberto Malagamba?</div>
+              <div className="mt-5 text-5xl text-white">
+                Software engineer
+                <span className="text-2xl text-gray-500"> (soon)</span>
+              </div>
+              <div className="mt-10 flex space-x-5">
+                <a
+                  href="https://www.linkedin.com/in/gilberto-malagamba-montejo-587a23305/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-white transition duration-300 ease-in-out hover:scale-110 hover:text-green-700"
+                >
+                  <FaLinkedin size={60} />
+                </a>
+                <a
+                  href="https://github.com/GilMM27"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-white transition duration-300 ease-in-out hover:scale-110 hover:text-green-700"
+                >
+                  <FaGithub size={60} />
+                </a>
+              </div>
             </div>
-            <div className="mt-10 flex space-x-5">
-              <a
-                href="https://www.linkedin.com/in/gilberto-malagamba-montejo-587a23305/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-white transition duration-300 ease-in-out hover:scale-110 hover:text-green-700"
-              >
-                <FaLinkedin size={60} />
-              </a>
-              <a
-                href="https://github.com/GilMM27"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-white transition duration-300 ease-in-out hover:scale-110 hover:text-green-700"
-              >
-                <FaGithub size={60} />
-              </a>
-            </div>
+            <Image
+              src="/assets/me.png"
+              alt="a cartoon of myself"
+              width={300}
+              height={300}
+              className="ml-50 w-120"
+            />
           </div>
         </section>
 

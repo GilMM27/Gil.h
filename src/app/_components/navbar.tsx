@@ -20,7 +20,7 @@ const Navbar: React.FC = () => {
       <div className="flex flex-1 justify-start">
         <button
           onClick={() => scrollToComponent("Gil.h")}
-          className="font-bold transition duration-300 ease-in-out hover:scale-110 hover:cursor-pointer hover:text-green-700"
+          className="font-bold transition duration-300 ease-in-out hover:scale-110 hover:cursor-pointer hover:text-green-500"
         >
           Gil.mm
         </button>
@@ -28,29 +28,29 @@ const Navbar: React.FC = () => {
       <div className="hidden flex-1 justify-center lg:flex">
         <button
           onClick={() => scrollToComponent("Technologies")}
-          className="mx-5 transition duration-300 ease-in-out hover:scale-110 hover:cursor-pointer hover:text-green-700"
+          className="mx-5 transition duration-300 ease-in-out hover:scale-110 hover:cursor-pointer hover:text-green-500"
         >
           Technologies
         </button>
         <button
           onClick={() => scrollToComponent("Experience")}
-          className="mx-5 transition duration-300 ease-in-out hover:scale-110 hover:cursor-pointer hover:text-green-700"
+          className="mx-5 transition duration-300 ease-in-out hover:scale-110 hover:cursor-pointer hover:text-green-500"
         >
           Experiences
         </button>
         <button
           onClick={() => scrollToComponent("Competitions")}
-          className="mx-5 transition duration-300 ease-in-out hover:scale-110 hover:cursor-pointer hover:text-green-700"
+          className="mx-5 transition duration-300 ease-in-out hover:scale-110 hover:cursor-pointer hover:text-green-500"
         >
           Competitions
         </button>
       </div>
       <div className="flex flex-1 justify-end space-x-5">
-        <button className="transition duration-300 ease-in-out hover:scale-110 hover:cursor-pointer hover:text-green-700">
+        <button className="transition duration-300 ease-in-out hover:scale-110 hover:cursor-pointer hover:text-green-500">
           Terminal
         </button>
         <button
-          className="transition duration-300 ease-in-out hover:scale-110 hover:cursor-pointer hover:text-green-700"
+          className="transition duration-300 ease-in-out hover:scale-110 hover:cursor-pointer hover:text-green-500"
           onClick={handleOpen}
         >
           Resume
