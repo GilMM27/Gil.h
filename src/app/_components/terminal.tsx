@@ -2,7 +2,6 @@
 
 import Modal from "@mui/material/Modal";
 import React, { useState, useEffect, useRef } from "react";
-import FloatingButton from "./floatingButton";
 
 const Terminal: React.FC = () => {
   const [open, setOpen] = useState(false);
@@ -152,22 +151,6 @@ const Terminal: React.FC = () => {
     inputRef.current?.focus();
   };
 
-  const [showButton, setShowButton] = useState(false);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      if (window.scrollY > window.innerHeight) {
-        setShowButton(true);
-      } else {
-        setShowButton(false);
-      }
-    };
-    window.addEventListener("scroll", handleScroll);
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, []);
-
   const OpenTerminal = () => {
     if (messages === null || messages.length === 0) {
       setMessages([
@@ -179,7 +162,7 @@ const Terminal: React.FC = () => {
   };
 
   return (
-    <section className="mx-10 mt-14 grid grid-cols-2 place-items-center items-center gap-10 lg:mx-28 lg:mt-28">
+    <section>
       <Modal
         open={openCV}
         onClose={handleCloseCV}
@@ -225,21 +208,17 @@ const Terminal: React.FC = () => {
         </div>
       </Modal>
 
-      <div>
-        <div className="text-end text-3xl text-green-700 lg:text-5xl">
-          Rather not scroll?
-        </div>
-        <div className="text-end text-4xl text-white lg:text-7xl">
-          Try the terminal!
-        </div>
-      </div>
-      <button
-        className="mx-10 my-8 w-full rounded-xl bg-sky-950 p-3 text-xs transition duration-300 ease-in-out hover:scale-105 hover:cursor-pointer focus:outline-none lg:text-xl"
+      <section
+        className="flex justify-center pb-30 text-center"
         onClick={OpenTerminal}
       >
-        LAUNCH TERMINAL
-      </button>
-      <FloatingButton onClick={OpenTerminal} isVisible={showButton} />
+        <section className="w-fit bg-radial from-blue-950 to-black">
+          <div className="px-30 py-10 transition duration-300 ease-in-out hover:scale-110 hover:cursor-pointer">
+            <div className="text-2xl text-gray-500">Rather not scroll?</div>
+            <div className="text-5xl text-blue-600">Try the terminal!</div>
+          </div>
+        </section>
+      </section>
     </section>
   );
 };

@@ -24,41 +24,57 @@ import {
   DropdownMenuTrigger,
 } from "./_components/shadcn/dropdown-menu";
 import Footer from "./_components/footer";
+import { FaLinkedin, FaGithub } from "react-icons/fa";
+import MatrixEffect from "./_components/matrixEffect";
 
 export default async function Home() {
-  const experiences = await api.experience.getExperiencesByType({
-    experienceType: "workExperience",
-    isPrimary: true,
-  });
-  const competitions = await api.experience.getExperiencesByType({
-    experienceType: "competition",
-    isPrimary: true,
-  });
-  const aboutMe = await api.aboutMe.getAboutMe({});
+  // const experiences = await api.experience.getExperiencesByType({
+  //   experienceType: "workExperience",
+  //   isPrimary: true,
+  // });
+  // const competitions = await api.experience.getExperiencesByType({
+  //   experienceType: "competition",
+  //   isPrimary: true,
+  // });
+  // const aboutMe = await api.aboutMe.getAboutMe({});
   return (
     <main id="Gil.h">
       <Navbar />
-      <div className="m-10 flex bg-gradient-to-l from-green-950 to-black py-5 lg:py-0">
-        <section className="relative hidden h-96 w-96 overflow-hidden lg:block">
-          <Image
-            src={"/assets/yo.jpg"}
-            width={918}
-            height={1032}
-            alt="Image"
-            className="absolute h-full w-full object-contain"
-          />
-        </section>
-        <section className="flex items-center text-green-700 lg:ml-10">
+      <MatrixEffect />
+      <div className="flex h-screen flex-col">
+        <section className="z-5 mt-30 ml-30 flex flex-1 items-center text-green-500">
           <div>
-            <div className="text-3xl lg:text-5xl">Who is:</div>
-            <div className="text-5xl lg:text-9xl">Gilberto Malagamba?</div>
+            <div className="text-3xl lg:text-5xl">Who is</div>
+            <div className="text-5xl lg:text-8xl">Gilberto Malagamba?</div>
+            <div className="mt-5 text-5xl text-white">
+              Software engineer
+              <span className="text-2xl text-gray-500"> (soon)</span>
+            </div>
+            <div className="mt-10 flex space-x-5">
+              <a
+                href="https://www.linkedin.com/in/gilberto-malagamba-montejo-587a23305/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-white transition duration-300 ease-in-out hover:scale-110 hover:text-green-700"
+              >
+                <FaLinkedin size={60} />
+              </a>
+              <a
+                href="https://github.com/GilMM27"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-white transition duration-300 ease-in-out hover:scale-110 hover:text-green-700"
+              >
+                <FaGithub size={60} />
+              </a>
+            </div>
           </div>
         </section>
+
+        <Terminal />
       </div>
 
-      <Terminal />
-
-      <Card className="mx-10 mt-14 rounded-xl border-0 bg-neutral-900 p-3 text-white lg:mx-28 lg:mt-28">
+      {/* <Card className="mx-10 mt-14 rounded-xl border-0 bg-neutral-900 p-3 text-white lg:mx-28 lg:mt-28">
         <CardHeader className="text-2xl text-green-400 lg:text-3xl">
           {aboutMe?.title}
         </CardHeader>
@@ -243,7 +259,7 @@ export default async function Home() {
         ) : (
           <div className="w-full p-5 text-center">Loading...</div>
         )}
-      </section>
+      </section> */}
 
       <Footer />
     </main>

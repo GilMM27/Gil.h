@@ -16,45 +16,46 @@ const Navbar: React.FC = () => {
   };
 
   return (
-    <section className="sticky top-0 z-10 flex h-14 w-full items-center justify-between bg-black px-6 lg:justify-around">
-      <button
-        onClick={() => scrollToComponent("Gil.h")}
-        className="text-3xl font-bold transition duration-300 ease-in-out hover:scale-110 hover:cursor-pointer hover:text-green-700"
-      >
-        Gil.h
-      </button>
-      <div className="hidden lg:block">
+    <section className="fixed top-0 z-10 flex h-20 w-full items-center px-10 text-2xl">
+      <div className="flex flex-1 justify-start">
         <button
-          onClick={() => scrollToComponent("Languages")}
-          className="mx-5 transition duration-300 ease-in-out hover:cursor-pointer hover:text-green-700"
+          onClick={() => scrollToComponent("Gil.h")}
+          className="font-bold transition duration-300 ease-in-out hover:scale-110 hover:cursor-pointer hover:text-green-700"
         >
-          Programming languages
+          Gil.mm
         </button>
+      </div>
+      <div className="hidden flex-1 justify-center lg:flex">
         <button
           onClick={() => scrollToComponent("Technologies")}
-          className="mx-5 transition duration-300 ease-in-out hover:cursor-pointer hover:text-green-700"
+          className="mx-5 transition duration-300 ease-in-out hover:scale-110 hover:cursor-pointer hover:text-green-700"
         >
           Technologies
         </button>
         <button
           onClick={() => scrollToComponent("Experience")}
-          className="mx-5 transition duration-300 ease-in-out hover:cursor-pointer hover:text-green-700"
+          className="mx-5 transition duration-300 ease-in-out hover:scale-110 hover:cursor-pointer hover:text-green-700"
         >
-          Experience
+          Experiences
         </button>
         <button
           onClick={() => scrollToComponent("Competitions")}
-          className="mx-5 transition duration-300 ease-in-out hover:cursor-pointer hover:text-green-700"
+          className="mx-5 transition duration-300 ease-in-out hover:scale-110 hover:cursor-pointer hover:text-green-700"
         >
           Competitions
         </button>
       </div>
-      <button
-        className="h-8 w-20 rounded-xl bg-sky-950 transition duration-300 ease-in-out hover:scale-110 hover:cursor-pointer"
-        onClick={handleOpen}
-      >
-        CV
-      </button>
+      <div className="flex flex-1 justify-end space-x-5">
+        <button className="transition duration-300 ease-in-out hover:scale-110 hover:cursor-pointer hover:text-green-700">
+          Terminal
+        </button>
+        <button
+          className="transition duration-300 ease-in-out hover:scale-110 hover:cursor-pointer hover:text-green-700"
+          onClick={handleOpen}
+        >
+          Resume
+        </button>
+      </div>
 
       <Modal
         open={open}
