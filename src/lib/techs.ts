@@ -1,0 +1,26 @@
+export const techs = [
+  ["Angular", "C_Sharp"],
+  ["Hack", "Javascript", "MongoDB", "OpenCV"],
+  [
+    "React",
+    "TypeScript",
+    "Arduino",
+    "Firebase",
+    "html",
+    "Matlab",
+    "Mysql",
+    "GitHub",
+  ],
+  [
+    "Postgresql",
+    "Tailwind",
+    "Unity",
+    "C++",
+    "Git",
+    "java",
+    "MediaPipe",
+    "Nextjs",
+    "Python",
+    "tRPC",
+  ],
+];

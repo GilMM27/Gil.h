@@ -2,8 +2,10 @@
 
 import Modal from "@mui/material/Modal";
 import React from "react";
+import { useTerminal } from "./TerminalContext";
 
 const Navbar: React.FC = () => {
+  const { openTerminal } = useTerminal();
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
@@ -46,7 +48,10 @@ const Navbar: React.FC = () => {
         </button>
       </div>
       <div className="flex flex-1 justify-end space-x-5">
-        <button className="transition duration-300 ease-in-out hover:scale-110 hover:cursor-pointer hover:text-green-500">
+        <button
+          className="transition duration-300 ease-in-out hover:scale-110 hover:cursor-pointer hover:text-green-500"
+          onClick={openTerminal}
+        >
           Terminal
         </button>
         <button

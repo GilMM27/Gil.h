@@ -2,6 +2,7 @@
 
 import Modal from "@mui/material/Modal";
 import React, { useState, useEffect, useRef } from "react";
+import { useTerminal } from "./TerminalContext";
 
 const Terminal: React.FC = () => {
   const [open, setOpen] = useState(false);
@@ -160,6 +161,12 @@ const Terminal: React.FC = () => {
     handleOpen();
     setTimeout(() => handleClick(), 100);
   };
+
+  const { registerOpenHandler } = useTerminal();
+
+  useEffect(() => {
+    registerOpenHandler(OpenTerminal);
+  }, [registerOpenHandler]);
 
   return (
     <section>

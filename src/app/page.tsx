@@ -26,6 +26,7 @@ import {
 import Footer from "./_components/footer";
 import { FaLinkedin, FaGithub } from "react-icons/fa";
 import MatrixEffect from "./_components/matrixEffect";
+import TechShowcase from "./_components/techShowcase";
 
 export default async function Home() {
   // const experiences = await api.experience.getExperiencesByType({
@@ -36,7 +37,6 @@ export default async function Home() {
   //   experienceType: "competition",
   //   isPrimary: true,
   // });
-  // const aboutMe = await api.aboutMe.getAboutMe({});
   return (
     <main id="Gil.h">
       <Navbar />
@@ -79,21 +79,31 @@ export default async function Home() {
             />
           </div>
         </section>
-
         <Terminal />
       </div>
 
-      {/* <Card className="mx-10 mt-14 rounded-xl border-0 bg-neutral-900 p-3 text-white lg:mx-28 lg:mt-28">
-        <CardHeader className="text-2xl text-green-400 lg:text-3xl">
-          {aboutMe?.title}
-        </CardHeader>
-        <CardContent className="text-lg lg:text-xl">
-          {aboutMe?.content.map((line, index) => (
-            <div key={index}>&gt; {line}</div>
-          ))}
-        </CardContent>
-      </Card>
+      <section className="mx-50 flex h-screen flex-col items-center justify-center">
+        <div className="flex">
+          <Image
+            src="/assets/meInSuit.jpg"
+            alt="Me in a suit"
+            width={300}
+            height={300}
+            className="w-150"
+          />
+          <div className="flex flex-col justify-center bg-gradient-to-r from-green-950 to-black px-40 text-4xl">
+            <p className="mb-10 text-green-500">Nice to meet you!</p>
+            <p>
+              I'm a software engineer, web developer, robotics enthusiast,
+              cybersecurity competitor and computer science student at
+              Tecnológico de Monterrey Campus Monterrey.
+            </p>
+          </div>
+        </div>
+      </section>
 
+      <TechShowcase />
+      {/*
       <Carousels />
 
       <div className="h-0 lg:h-14" id="Experience"></div>
