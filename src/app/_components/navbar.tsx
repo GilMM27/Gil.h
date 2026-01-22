@@ -1,12 +1,36 @@
 "use client";
 
 import Modal from "@mui/material/Modal";
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { useTerminal } from "./TerminalContext";
 
 const Navbar: React.FC = () => {
+  const { openTerminal } = useTerminal();
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
+
+  const [isVisible, setIsVisible] = useState(true);
+  const [lastScrollY, setLastScrollY] = useState(0);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const currentScrollY = window.scrollY;
+
+      if (currentScrollY < lastScrollY || currentScrollY < 50) {
+        // Scrolling up or near top of page
+        setIsVisible(true);
+      } else {
+        // Scrolling down
+        setIsVisible(false);
+      }
+
+      setLastScrollY(currentScrollY);
+    };
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [lastScrollY]);
 
   const scrollToComponent = (id: string) => {
     const element = document.getElementById(id);
@@ -16,45 +40,51 @@ const Navbar: React.FC = () => {
   };
 
   return (
-    <section className="sticky top-0 z-10 flex h-14 w-full items-center justify-between bg-black px-6 lg:justify-around">
-      <button
-        onClick={() => scrollToComponent("Gil.h")}
-        className="text-3xl font-bold transition duration-300 ease-in-out hover:scale-110 hover:cursor-pointer hover:text-green-700"
-      >
-        Gil.h
-      </button>
-      <div className="hidden lg:block">
+    <section
+      className={`fixed top-0 z-20 flex h-14 w-full items-center bg-black px-10 text-2xl transition-transform duration-300 ${isVisible ? "translate-y-0" : "-translate-y-full"}`}
+    >
+      <div className="flex flex-1 justify-start">
         <button
-          onClick={() => scrollToComponent("Languages")}
-          className="mx-5 transition duration-300 ease-in-out hover:cursor-pointer hover:text-green-700"
+          onClick={() => scrollToComponent("Gil.h")}
+          className="font-bold transition duration-300 ease-in-out hover:scale-110 hover:cursor-pointer hover:text-green-500"
         >
-          Programming languages
+          Gil.mm
         </button>
+      </div>
+      <div className="hidden flex-1 justify-center lg:flex">
         <button
           onClick={() => scrollToComponent("Technologies")}
-          className="mx-5 transition duration-300 ease-in-out hover:cursor-pointer hover:text-green-700"
+          className="mx-5 transition duration-300 ease-in-out hover:scale-110 hover:cursor-pointer hover:text-green-500"
         >
           Technologies
         </button>
         <button
           onClick={() => scrollToComponent("Experience")}
-          className="mx-5 transition duration-300 ease-in-out hover:cursor-pointer hover:text-green-700"
+          className="mx-5 transition duration-300 ease-in-out hover:scale-110 hover:cursor-pointer hover:text-green-500"
         >
-          Experience
+          Experiences
         </button>
         <button
           onClick={() => scrollToComponent("Competitions")}
-          className="mx-5 transition duration-300 ease-in-out hover:cursor-pointer hover:text-green-700"
+          className="mx-5 transition duration-300 ease-in-out hover:scale-110 hover:cursor-pointer hover:text-green-500"
         >
           Competitions
         </button>
       </div>
-      <button
-        className="h-8 w-20 rounded-xl bg-sky-950 transition duration-300 ease-in-out hover:scale-110 hover:cursor-pointer"
-        onClick={handleOpen}
-      >
-        CV
-      </button>
+      <div className="flex flex-1 justify-end space-x-5">
+        <button
+          className="transition duration-300 ease-in-out hover:scale-110 hover:cursor-pointer hover:text-green-500"
+          onClick={openTerminal}
+        >
+          Terminal
+        </button>
+        <button
+          className="transition duration-300 ease-in-out hover:scale-110 hover:cursor-pointer hover:text-green-500"
+          onClick={handleOpen}
+        >
+          Resume
+        </button>
+      </div>
 
       <Modal
         open={open}
