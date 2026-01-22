@@ -10,7 +10,6 @@ import {
   CardHeader,
   CardTitle,
 } from "./_components/shadcn/card";
-import Carousels from "./_components/carousels";
 import {
   Tabs,
   TabsContent,
@@ -29,14 +28,14 @@ import MatrixEffect from "./_components/matrixEffect";
 import TechShowcase from "./_components/techShowcase";
 
 export default async function Home() {
-  // const experiences = await api.experience.getExperiencesByType({
-  //   experienceType: "workExperience",
-  //   isPrimary: true,
-  // });
-  // const competitions = await api.experience.getExperiencesByType({
-  //   experienceType: "competition",
-  //   isPrimary: true,
-  // });
+  const experiences = await api.experience.getExperiencesByType({
+    experienceType: "workExperience",
+    isPrimary: true,
+  });
+  const competitions = await api.experience.getExperiencesByType({
+    experienceType: "competition",
+    isPrimary: true,
+  });
   return (
     <main id="Gil.h">
       <Navbar />
@@ -82,7 +81,7 @@ export default async function Home() {
         <Terminal />
       </div>
 
-      <section className="mx-50 flex h-screen flex-col items-center justify-center">
+      <section className="m-50 flex flex-col items-center justify-center">
         <div className="flex">
           <Image
             src="/assets/meInSuit.jpg"
@@ -94,7 +93,7 @@ export default async function Home() {
           <div className="flex flex-col justify-center bg-gradient-to-r from-green-950 to-black px-40 text-4xl">
             <p className="mb-10 text-green-500">Nice to meet you!</p>
             <p>
-              I'm a software engineer, web developer, robotics enthusiast,
+              I&apos;m a software engineer, web developer, robotics enthusiast,
               cybersecurity competitor and computer science student at
               Tecnológico de Monterrey Campus Monterrey.
             </p>
@@ -103,8 +102,6 @@ export default async function Home() {
       </section>
 
       <TechShowcase />
-      {/*
-      <Carousels />
 
       <div className="h-0 lg:h-14" id="Experience"></div>
       <div className="mt-14 w-full text-center text-3xl text-green-700 lg:text-5xl">
@@ -278,7 +275,7 @@ export default async function Home() {
         ) : (
           <div className="w-full p-5 text-center">Loading...</div>
         )}
-      </section> */}
+      </section>
 
       <Footer />
     </main>

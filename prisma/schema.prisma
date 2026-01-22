@@ -33,18 +33,3 @@ model experience {
     createdAt   DateTime       @default(now())
     updatedAt   DateTime       @updatedAt
 }
-
-enum skillType {
-    language
-    technology
-}
-
-model skill {
-    id        Int       @id @default(autoincrement())
-    name      String
-    type      skillType
-    imageUrl  String
-    years     Int
-    createdAt DateTime  @default(now())
-    updatedAt DateTime  @updatedAt
-}

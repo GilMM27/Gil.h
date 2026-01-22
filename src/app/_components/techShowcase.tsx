@@ -2,35 +2,7 @@
 
 import { useState } from "react";
 import Image from "next/image";
-import { techs } from "~/lib/techs";
-
-// Predominant colors for each tech
-const techColors: Record<string, string> = {
-  Angular: "#DD0031",
-  C_Sharp: "#68217A",
-  Hack: "#375EAB",
-  Javascript: "#F7DF1E",
-  MongoDB: "#47A248",
-  OpenCV: "#5C3EE8",
-  React: "#61DAFB",
-  TypeScript: "#3178C6",
-  Arduino: "#00979D",
-  Firebase: "#FFCA28",
-  html: "#E34F26",
-  Matlab: "#0076A8",
-  Mysql: "#4479A1",
-  GitHub: "#6e5494",
-  Postgresql: "#336791",
-  Tailwind: "#06B6D4",
-  Unity: "#FFFFFF",
-  "C++": "#00599C",
-  Git: "#F05032",
-  java: "#ED8B00",
-  MediaPipe: "#0097A7",
-  Nextjs: "#FFFFFF",
-  Python: "#3776AB",
-  tRPC: "#2596BE",
-};
+import { techColors, techs } from "~/lib/techs";
 
 export default function TechShowcase() {
   const [hoveredTech, setHoveredTech] = useState<string | null>(null);
@@ -62,8 +34,8 @@ export default function TechShowcase() {
           What can I do for you?
         </p>
         <p className="mt-10 w-2/3 text-4xl">
-          I've worked on a ton of projects with different technologies, making
-          me a versatile developer ready for new challenges.
+          I&apos;ve worked on a ton of projects with different technologies,
+          making me a versatile developer ready for new challenges.
         </p>
 
         <div className="flex items-center justify-between">

@@ -1,5 +1,5 @@
 export const techs = [
-  ["Angular", "C_Sharp"],
+  ["Angular", "CSharp"],
   ["Hack", "Javascript", "MongoDB", "OpenCV"],
   [
     "React",
@@ -24,3 +24,30 @@ export const techs = [
     "tRPC",
   ],
 ];
+
+export const techColors: Record<string, string> = {
+  Angular: "#DD0031",
+  CSharp: "#68217A",
+  Hack: "#375EAB",
+  Javascript: "#F7DF1E",
+  MongoDB: "#47A248",
+  OpenCV: "#5C3EE8",
+  React: "#61DAFB",
+  TypeScript: "#3178C6",
+  Arduino: "#00979D",
+  Firebase: "#FFCA28",
+  html: "#E34F26",
+  Matlab: "#0076A8",
+  Mysql: "#4479A1",
+  GitHub: "#6e5494",
+  Postgresql: "#336791",
+  Tailwind: "#06B6D4",
+  Unity: "#FFFFFF",
+  "C++": "#00599C",
+  Git: "#F05032",
+  java: "#ED8B00",
+  MediaPipe: "#0097A7",
+  Nextjs: "#FFFFFF",
+  Python: "#3776AB",
+  tRPC: "#2596BE",
+};

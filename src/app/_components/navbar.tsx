@@ -1,7 +1,7 @@
 "use client";
 
 import Modal from "@mui/material/Modal";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useTerminal } from "./TerminalContext";
 
 const Navbar: React.FC = () => {
@@ -9,6 +9,28 @@ const Navbar: React.FC = () => {
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
+
+  const [isVisible, setIsVisible] = useState(true);
+  const [lastScrollY, setLastScrollY] = useState(0);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const currentScrollY = window.scrollY;
+
+      if (currentScrollY < lastScrollY || currentScrollY < 50) {
+        // Scrolling up or near top of page
+        setIsVisible(true);
+      } else {
+        // Scrolling down
+        setIsVisible(false);
+      }
+
+      setLastScrollY(currentScrollY);
+    };
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [lastScrollY]);
 
   const scrollToComponent = (id: string) => {
     const element = document.getElementById(id);
@@ -18,7 +40,9 @@ const Navbar: React.FC = () => {
   };
 
   return (
-    <section className="fixed top-0 z-10 flex h-20 w-full items-center px-10 text-2xl">
+    <section
+      className={`fixed top-0 z-20 flex h-14 w-full items-center bg-black px-10 text-2xl transition-transform duration-300 ${isVisible ? "translate-y-0" : "-translate-y-full"}`}
+    >
       <div className="flex flex-1 justify-start">
         <button
           onClick={() => scrollToComponent("Gil.h")}
