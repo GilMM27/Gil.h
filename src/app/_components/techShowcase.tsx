@@ -45,8 +45,8 @@ export default function TechShowcase() {
                 <Image
                   src={`/assets/techs/${hoveredTech}.png`}
                   alt={hoveredTech}
-                  width={120}
-                  height={120}
+                  width={500}
+                  height={500}
                   className="h-60 w-60 object-contain"
                 />
                 <span

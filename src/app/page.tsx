@@ -103,91 +103,87 @@ export default async function Home() {
 
       <TechShowcase />
 
-      <div className="h-0 lg:h-14" id="Experience"></div>
-      <div className="mt-14 w-full text-center text-3xl text-green-700 lg:text-5xl">
-        Experience
-      </div>
-      {experiences.length > 0 ? (
-        <section className="mx-10 mt-10 justify-center rounded-xl bg-neutral-900 lg:mx-28 lg:bg-none">
-          <Tabs defaultValue={experiences[0]?.id.toString()}>
-            <TabsList className="w-full bg-neutral-900">
-              <div className="hidden w-full lg:flex lg:justify-evenly">
+      <section className="flex h-screen flex-col" id="Experience">
+        <p className="mt-10 mr-30 text-end text-5xl text-green-500 lg:text-8xl">
+          My experience
+        </p>
+        {experiences.length > 0 ? (
+          <div className="flex flex-1 items-center">
+            <Tabs
+              defaultValue={experiences[0]?.id.toString()}
+              className="flex h-[80vh] w-full gap-6"
+            >
+              <TabsList className="flex h-full w-24 flex-col justify-center gap-0 bg-transparent lg:w-32">
                 {experiences.map((experience) => (
                   <TabsTrigger
                     key={experience.id}
                     value={experience.id.toString()}
-                    className="w-full"
+                    className="group relative h-16 w-full overflow-visible rounded-none p-0 transition-all duration-300 data-[state=active]:grayscale-0 data-[state=inactive]:grayscale lg:h-20"
                   >
-                    {experience.title}
+                    <div className="pointer-events-none absolute top-0 right-0 bottom-0 -left-20 bg-gradient-to-r from-blue-950 to-transparent opacity-0 transition-opacity duration-300 group-data-[state=active]:opacity-100 lg:-left-28" />
+                    <Image
+                      src={experience.imageUrl}
+                      width={80}
+                      height={80}
+                      alt={experience.title}
+                      className="relative z-10 h-full w-16 object-contain lg:w-20"
+                    />
                   </TabsTrigger>
                 ))}
-              </div>
-              <div className="block lg:hidden">
-                <DropdownMenu>
-                  <DropdownMenuTrigger>
-                    <div className="text-white">Options</div>
-                  </DropdownMenuTrigger>
-                  <DropdownMenuContent>
-                    {experiences.map((experience) => (
-                      <DropdownMenuItem key={experience.id}>
-                        <TabsTrigger
-                          value={experience.id.toString()}
-                          className="w-full text-lg"
-                        >
-                          {experience.title}
-                        </TabsTrigger>
-                      </DropdownMenuItem>
-                    ))}
-                  </DropdownMenuContent>
-                </DropdownMenu>
-              </div>
-            </TabsList>
-            {experiences.map((experience) => (
-              <TabsContent key={experience.id} value={experience.id.toString()}>
-                <Card className="flex flex-col border-0 bg-neutral-900 text-lg text-white md:grid md:h-[25rem] md:grid-cols-3">
-                  <Image
-                    src={experience.imageUrl}
-                    width={918}
-                    height={1032}
-                    alt={experience.title}
-                    className="mb-10 max-h-2/3 w-3/4 self-center rounded-xl object-cover md:col-span-1 md:mb-0 md:justify-self-center"
-                  />
-                  <div className="scrollbar-thin scrollbar-thumb-gray-500 scrollbar-track-neutral-900 md:col-span-2 md:overflow-y-auto">
-                    <CardHeader>
-                      <CardTitle className="text-3xl">
-                        {experience.title}
-                      </CardTitle>
-                      <CardDescription className="text-xl">
-                        {experience.header}
-                      </CardDescription>
-                    </CardHeader>
-                    <CardContent className="mt-5 space-y-2">
+              </TabsList>
+
+              {experiences.map((experience) => (
+                <TabsContent
+                  key={experience.id}
+                  value={experience.id.toString()}
+                  className="mt-0 flex flex-1 items-center gap-6"
+                >
+                  <div className="scrollbar-thin scrollbar-thumb-gray-500 scrollbar-track-neutral-900 flex h-[70vh] flex-1 flex-col overflow-y-auto rounded-xl p-6">
+                    <h2 className="text-3xl font-bold text-blue-600 lg:text-8xl">
+                      {experience.title}
+                    </h2>
+                    <p className="mt-5 text-lg text-gray-400 lg:text-4xl">
+                      {experience.header}
+                    </p>
+                    <div className="mt-6 flex-1 space-y-3 text-base text-white lg:text-3xl">
                       {experience.description.map((line, index) => (
                         <div key={index}>&gt; {line}</div>
                       ))}
-                    </CardContent>
-                    <CardFooter className="flex flex-col">
+                    </div>
+                    <div className="mt-6 flex flex-col gap-2">
                       {experience.linksName.map((linkName, index) => (
                         <a
                           key={index}
                           href={experience.link[index]}
                           rel="noopener noreferrer"
                           target="_blank"
-                          className="text-green-400"
+                          className="text-green-400 hover:text-green-300 lg:text-3xl"
                         >
                           {linkName}
                         </a>
                       ))}
-                    </CardFooter>
+                    </div>
                   </div>
-                </Card>
-              </TabsContent>
-            ))}
-          </Tabs>
-        </section>
-      ) : (
-        <div className="w-full p-5 text-center">Loading...</div>
-      )}
+
+                  <div className="hidden h-[70vh] w-1/3 lg:block">
+                    <Image
+                      src={experience.imageUrl}
+                      width={1000}
+                      height={1000}
+                      alt={experience.title}
+                      className="h-full w-full rounded-xl object-contain p-20"
+                    />
+                  </div>
+                </TabsContent>
+              ))}
+            </Tabs>
+          </div>
+        ) : (
+          <div className="flex flex-1 items-center justify-center text-white">
+            Loading...
+          </div>
+        )}
+      </section>
 
       <div className="h-0 lg:h-14" id="Competitions"></div>
       <div className="mt-14 w-full text-center text-3xl text-green-700 lg:text-5xl">
